@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+
+/* 左圖右文字 mianA */
+
+.cardA_img img {
+    width: 100%;
+}
+
+/* parallax 遮罩 標題 mianB */
+
+.cardB{ 
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://picsum.photos/1000/800?random=");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.cardB_txt {  
+   
+}
+
+/* 三張卡片均分 container mianC */
+.cardC_txt {
+    height: 200px;
+}
+
+
+/* footer */
+footer {
+    width: 100%;
+    background-color: #999;
+}
+.footer_text{
+    width: 100%;
+}
