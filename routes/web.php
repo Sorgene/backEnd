@@ -11,9 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('front/index');
-});
-Route::get('/news', function () {
-    return view('front/news');
+
+
+Route::get('/', 'FrontController@index');
+Route::get('/news', 'FrontController@news');
+Route::get('/login', 'LoginController@login');
+
+
+
+Auth::routes();
+
+Route::group(['middleware'=>['auth'],'prefix'=>'/home'],function()
+{
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/news', 'NewsController@index');
+Route::post('/news/store', 'NewsController@store');
+
 });
