@@ -16,4 +16,8 @@ class FrontController extends Controller
         $news_data = DB::table('news')->get();
         return view('front/news', compact('news_data'));
     }
+    public function test(Request $request){
+        $id = $request->id;
+        dd($id);
+    }
 }
