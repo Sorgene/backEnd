@@ -20,18 +20,20 @@ Route::get('test/{id}', 'FrontController@test');
 Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => '/home'], function () {
-// 首頁
+    // 首頁
     Route::get('/', 'HomeController@index');
 
-// 最新消息管理
-    Route::get('/news', 'NewsController@index');
+    // 最新消息管理
+    Route::get('/news', 'NewsController@index');//首頁
 
-    Route::post('/news/store', 'NewsController@store');
-    Route::get('/news/create', 'NewsController@create');
+    Route::post('/news/store', 'NewsController@store');//新增
+    Route::get('/news/create', 'NewsController@create');//修改讀取
 
-    Route::get('/news/edit/{id}', 'NewsController@edit');
-    Route::post('/news/update/{id}', 'NewsController@update');
+    Route::get('/news/edit/{id}', 'NewsController@edit');//修改編輯
+    Route::post('/news/update/{id}', 'NewsController@update');//新增
 
-    Route::post('/news/delete', 'NewsController@delete');
+    //刪除暴力方式
+    Route::get('/news/delete/{id}', 'NewsController@delete');
 
+    //Route::post('/news/delete/{id}', 'NewsController@delete');
 });

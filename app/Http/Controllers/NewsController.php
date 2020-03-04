@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\News;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class NewsController extends Controller
     {
         // $all_news = DB::table('news')->get();
         $all_news = News::all();
-        return view('admin/news/index',compact('all_news'));
+        return view('admin/news/index', compact('all_news'));
     }
 
 
@@ -26,6 +27,7 @@ class NewsController extends Controller
      */
     public function create()
     {
+
         return view('admin/news/create');
     }
 
@@ -35,9 +37,16 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        $news_data = $request ->all();
-        News::create($news_data) ;
+    public function store(Request $request)
+    {
+        $news_data = $request->all();
+// dd($news_data);
+        //上傳檔案
+        $file_name = $request->file('img')->store('', 'public');
+        $news_data['img'] = $file_name;
+
+        News::create($news_data);
+        // dd('store');
         return redirect('/home/news');
     }
 
@@ -60,8 +69,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-    $news = News::find($id);
-    return view('admin/news/edit',compact('news'));
+        $news = News::find($id);
+        return view('admin/news/edit', compact('news'));
     }
 
     /**
@@ -83,8 +92,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Request $request, $id)
     {
-        //
+        News::find($id)->delete();
+        return redirect('home/news');
     }
 }
