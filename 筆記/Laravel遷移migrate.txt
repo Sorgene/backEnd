@@ -1,0 +1,18 @@
+
+php artisan make:migration create_news //創建create_news資料
+//遷移檔會建立在 app/database/migrations 目錄下
+
+php artisan migrate //執行遷移，把所有未完成遷移的資料都遷移到指定DB
+php artisan migrate:fresh //移除資料庫的所有資料表，然後執行 migrate 指令
+
+//狀態一：推回上一次的遷移
+php artisan migrate:rollback
+
+//狀態二：推回所有遷移
+php artisan migrate:reset
+
+//狀態三：推回所有遷移並且再執行一次
+php artisan migrate:refresh
+
+//或者加上--seed
+php artisan migrate:refresh --seed

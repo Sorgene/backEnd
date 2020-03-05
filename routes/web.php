@@ -12,7 +12,11 @@
  */
 
 Route::get('/', 'FrontController@index');
+// 最新消息
 Route::get('/news', 'FrontController@news');
+// 最新消息detail
+Route::get('/news/{id}', 'FrontController@news_detail');
+
 Route::get('/login', 'LoginController@login');
 
 Route::get('test/{id}', 'FrontController@test');
@@ -25,6 +29,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/home'], function () {
 
     // 最新消息管理
     Route::get('/news', 'NewsController@index');//首頁
+
 
     Route::post('/news/store', 'NewsController@store');//新增
     Route::get('/news/create', 'NewsController@create');//修改讀取

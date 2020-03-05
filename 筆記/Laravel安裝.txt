@@ -1,46 +1,54 @@
-¦w¸Ë Laravel
-Laravel ¨Ï¥Î Composer ¨ÓºŞ²z¬Û¨Ì©Ê¡C©Ò¥H¡A¦b¨Ï¥Î Laravel ¤§«e¡A§A¥²¶·½T»{¹q¸£¤W¬O§_¦w¸Ë¤F Composer¡C
+ï»¿ç’°å¢ƒå»ºç½®
 
-¤è¦¡¤@¡G³z¹L Laravel Installer
-­º¥ı¡A¨Ï¥Î Composer ¤U¸ü Laravel installer¡G
+Step1 -å®‰è£XAMPP
+æ‰“é–‹ä½ çš„xamppæ§åˆ¶å°ï¼Œä¸¦ä¸”å•Ÿå‹•MySQL
+
+Step2 -Composerå®‰è£ä¸Š
+å…ˆåˆ° https://getcomposer.org/download/ é€™è£¡ä¸‹è¼‰ Composer-Setup.exe
+
+å»ºç«‹Laravelå°ˆæ¡ˆï¼Œå®‰è£ Laravel
+Laravel ä½¿ç”¨ Composer ä¾†ç®¡ç†ç›¸ä¾æ€§ã€‚æ‰€ä»¥ï¼Œåœ¨ä½¿ç”¨ Laravel ä¹‹å‰ï¼Œä½ å¿…é ˆç¢ºèªé›»è…¦ä¸Šæ˜¯å¦å®‰è£äº† Composerã€‚
+
+æ–¹å¼ä¸€ï¼šé€é Laravel Installer
+é¦–å…ˆï¼Œä½¿ç”¨ Composer ä¸‹è¼‰ Laravel installerï¼š
 
 composer global require "laravel/installer"
 
-¤è¦¡¤G¡G³z¹L Composer Create-Project
-§A¤]¥i¥H³z¹L Composer ¦b©R¥O¦C°õ¦æ create-project «ü¥O¨Ó¦w¸Ë Laravel¡G
+æ–¹å¼äºŒï¼šé€é Composer Create-Project
+ä½ ä¹Ÿå¯ä»¥é€é Composer åœ¨å‘½ä»¤åˆ—åŸ·è¡Œ create-project æŒ‡ä»¤ä¾†å®‰è£ Laravelï¼š
 composer create-project --prefer-dist laravel/laravel blog
+ç›®éŒ„æ¶æ§‹-https://ithelp.ithome.com.tw/articles/10202956
 
-
-®M¥ó¦w¸Ë
-composer install(»İ­n¦w¸Ë02-Composer-Setup)
+å¥—ä»¶å®‰è£
+composer install(éœ€è¦å®‰è£02-Composer-Setup)
 npm install
 
-.env«Ø¥ß
-§ó§ïDB_DATABASE=TEST
+.envå»ºç«‹
+æ›´æ”¹DB_DATABASE=TEST
 
-php artisan serve«á¡AÂsÄı¾¹¶}±Ò http://localhost:8000/ ·|¬İ¨ì Laravel¹w³]ªºµe­±¡I
+php artisan serveå¾Œï¼Œç€è¦½å™¨é–‹å•Ÿ http://localhost:8000/ æœƒçœ‹åˆ° Laravelé è¨­çš„ç•«é¢ï¼
 
-À³¥Îµ{¦¡ª÷Æ_
+æ‡‰ç”¨ç¨‹å¼é‡‘é‘°
 php artisan key:generate
-¦b§A¦w¸Ë§¹ Laravel «á¡A­º¥ı»İ­n°µªº¨Æ±¡¬O³]©w¤@­ÓÀH¾÷¦r¦ê¨ìÀ³¥Îµ{¦¡ª÷Æ_¡C°²³]§A¬O³z¹L Composer ©Î¬O Laravel ¦w¸Ë¤u¨ã¦w¸Ë Laravel¡A¨º»ò³o­Óª÷Æ_¤w¸g³z¹L php artisan key:generate «ü¥OÀ°§A³]©w§¹¦¨¡C
+åœ¨ä½ å®‰è£å®Œ Laravel å¾Œï¼Œé¦–å…ˆéœ€è¦åšçš„äº‹æƒ…æ˜¯è¨­å®šä¸€å€‹éš¨æ©Ÿå­—ä¸²åˆ°æ‡‰ç”¨ç¨‹å¼é‡‘é‘°ã€‚å‡è¨­ä½ æ˜¯é€é Composer æˆ–æ˜¯ Laravel å®‰è£å·¥å…·å®‰è£ Laravelï¼Œé‚£éº¼é€™å€‹é‡‘é‘°å·²ç¶“é€é php artisan key:generate æŒ‡ä»¤å¹«ä½ è¨­å®šå®Œæˆã€‚
 
-laravel auth (·|­û¨t²Î)
-composer require laravel/ui(laravel 6 ±N auth ¿W¥ß¥X¨Ó, ­n¤â°Ê¸ü¤J ui®M¥ó)
-php artisan ui vue --auth (¥[¤J¨­¥÷ÅçÃÒ¥\¯à)
+laravel auth (æœƒå“¡ç³»çµ±)
+composer require laravel/ui(laravel 6 å°‡ auth ç¨ç«‹å‡ºä¾†, è¦æ‰‹å‹•è¼‰å…¥ uiå¥—ä»¶)
+php artisan ui vue --auth (åŠ å…¥èº«ä»½é©—è­‰åŠŸèƒ½)
 npm install
 npn run dev
 
-php artisan make:cotroller NewsController ±Ä¤j¾m®p©R¦W
+php artisan make:cotroller NewsController æ¡å¤§é§å³°å‘½å
 php artisan make:cotroller FrontController
 
-¥´¶}routes/web.php
+æ‰“é–‹routes/web.php
 Route::get('/', 'FrontController@index');
 Route::get('/news', 'FrontController@news');
 Route::get('/login', 'LoginController@login');
 
-¥´¶}Controller/Auth/FrontController.php
+æ‰“é–‹Controller/Auth/FrontController.php
 namespace App\Http\Controllers;
-use DB;                            (°½¦Y¨B¡A¥[¤J¨Ï¥Î¸ê®Æ®w¡A¯ÊÂI©ö³QÀb)
+use DB;                            (å·åƒæ­¥ï¼ŒåŠ å…¥ä½¿ç”¨è³‡æ–™åº«ï¼Œç¼ºé»æ˜“è¢«é§­)
 use Illuminate\Http\Request;
 class FrontController extends Controller
 {
@@ -56,10 +64,10 @@ class FrontController extends Controller
 }
 
 
-php artisan make:migration create_news ³Ğ«Øcreate_news¸ê®Æ
+php artisan make:migration create_news å‰µå»ºcreate_newsè³‡æ–™
 
-php artisan migrate °õ¦æ¾E²¾
-php artisan migrate:fresh ²¾°£¸ê®Æ®wªº©Ò¦³¸ê®Æªí¡AµM«á°õ¦æ migrate «ü¥O
+php artisan migrate åŸ·è¡Œé·ç§»
+php artisan migrate:fresh ç§»é™¤è³‡æ–™åº«çš„æ‰€æœ‰è³‡æ–™è¡¨ï¼Œç„¶å¾ŒåŸ·è¡Œ migrate æŒ‡ä»¤
 
 
 

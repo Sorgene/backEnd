@@ -1,0 +1,6 @@
+¦w¸Ë®M¥ó
+https://github.com/krlove/eloquent-model-generator
+composer require krlove/eloquent-model-generator --dev
+
+
+php artisan krlove:generate:model NewsImg --table-name=news_img
