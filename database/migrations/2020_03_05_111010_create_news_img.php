@@ -20,7 +20,7 @@ class CreateNewsImg extends Migration
             $table->integer('sort')->default(0);
             $table->timestamps();
         });
-        Schema::rename('news_img',' news_imgs');
+        
     }
 
     /**

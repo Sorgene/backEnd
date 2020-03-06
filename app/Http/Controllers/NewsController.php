@@ -14,6 +14,7 @@ class NewsController extends Controller
     {
         // $all_news = DB::table('news')->get();
         $all_news = News::all();
+
         return view('admin/news/index', compact('all_news'));
     }
 
@@ -27,20 +28,36 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $news_data = $request->all();
-
+        $NewsImgs = new NewsImgs;
         //上傳檔案
         // $file_name = $request->file('img')->store('', 'public');
         // $news_data['img'] = $file_name;
 
-        // 暴力上傳
+        // 暴力上傳 一張
         if ($request->hasFile('img')) {
             $file = $request->file('img');
             $path = $this->fileUpload($file, 'product');
             $news_data['img'] = $path;
         }
+        $news_id = News::create($news_data);
+
+        // 多張
+        // 從request中撈出 多筆照片的資料
+        // 多張照片 要存的欄位 new_id img_url 拿一張存一張
+        foreach($request->all()['new_imgs'] as $item){
+
+                $file = $item;
+                $path = $this->fileUpload($file, 'product');
+                $NewsImgs->new_id = $news_id['id'];
+                $NewsImgs->img_url = $path;
+                $NewsImgs->save();
 
 
-        News::create($news_data);
+        }
+
+
+
+
 
         return redirect('/home/news');
     }
@@ -75,6 +92,15 @@ class NewsController extends Controller
             $request_data["img"] = $path;//$request_data["img"]替代成可存取路徑$path
             $item->update($request_data);
         }
+
+
+
+
+
+
+
+
+
 
 
 

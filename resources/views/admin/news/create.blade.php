@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label for="img">多張圖片上傳</label>
-        <input type="file" class="form-control" id="img" name="img" required multiple>
+        <input type="file" class="form-control" id="img" name="new_imgs[]" required multiple>
       </div>
     <div class="form-group">
       <label for="title">標題</label>

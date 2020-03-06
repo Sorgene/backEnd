@@ -8,10 +8,8 @@
 
         <div class="form-group">
             <label for="img">現有主要圖片</label>
-            {{-- 非暴力 --}}
-            <img width="250px" src="{{asset($news->img)}}" alt="" srcset="">
             {{-- 暴力 --}}
-            {{-- <img width="250px" src="{{asset($new->img)}}" alt="" srcset=""> --}}
+            <img width="250px" src="{{asset($news->img)}}" alt="" srcset="">
 
         </div>
         <div class="form-group">
