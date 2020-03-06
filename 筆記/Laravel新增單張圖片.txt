@@ -1,5 +1,43 @@
-﻿
-php artisan make:migration create_news 創建create_news資料
+﻿app/NewsController.php
 
-php artisan migrate 執行遷移
-php artisan migrate:fresh 移除資料庫的所有資料表，然後執行 migrate 指令
+    public function update(Request $request, $id)
+    {
+        $item = News::find($id);
+        $request_data = $request->all();
+
+	//主要圖片上傳
+        // if有上傳有上傳圖片新圖片
+        if ($request->hasFile('img')) {
+
+            // 舊圖片刪除
+            $old_img = $item->img;
+            File::delete(public_path().$old_img);
+
+
+            //上傳新圖片
+            $file = $request->file('img');
+            $path = $this->fileUpload($file, 'news');
+            $request_data['img'] = $path;
+        }
+
+
+//自寫函數
+    private function fileUpload($file, $dir)
+    {
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if (!is_dir('upload/')) {
+            mkdir('upload/');
+        }
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if (!is_dir('upload/' . $dir)) {
+            mkdir('upload/' . $dir);
+        }
+        //取得檔案的副檔名
+        $extension = $file->getClientOriginalExtension();
+        //檔案名稱會被重新命名
+        $filename = strval(time() . md5(rand(100, 200))) . '.' . $extension;
+        //移動到指定路徑
+        move_uploaded_file($file, public_path() . '/upload/' . $dir . '/' . $filename);
+        //回傳 資料庫儲存用的路徑格式
+        return '/upload/' . $dir . '/' . $filename;
+    }
