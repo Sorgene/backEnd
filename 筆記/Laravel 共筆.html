@@ -1,0 +1,2639 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Laravel 共筆 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Laravel-共筆"><a class="anchor hidden-xs" href="#Laravel-共筆" title="Laravel-共筆"><span class="octicon octicon-link"></span></a>Laravel 共筆</h1><hr><h1 id="時間管理-php套件---carbon"><a class="anchor hidden-xs" href="#時間管理-php套件---carbon" title="時間管理-php套件---carbon"><span class="octicon octicon-link"></span></a>時間管理 php套件 - carbon</h1><p><a href="https://carbon.nesbot.com/docs/" target="_blank" rel="noopener">https://carbon.nesbot.com/docs/</a></p><hr><h1 id="Route"><a class="anchor hidden-xs" href="#Route" title="Route"><span class="octicon octicon-link"></span></a>Route</h1><p>列出所有Route列表</p><pre><code>php artisan route:list
+</code></pre><hr><h1 id="Middleware-中介層"><a class="anchor hidden-xs" href="#Middleware-中介層" title="Middleware-中介層"><span class="octicon octicon-link"></span></a>Middleware (中介層)</h1><h2 id="使用方式"><a class="anchor hidden-xs" href="#使用方式" title="使用方式"><span class="octicon octicon-link"></span></a>使用方式</h2><ol>
+<li>下在route中</li>
+</ol><p>在單一一個Route後面加上middleware</p><pre><code>Route::get('admin/profile', function () {
+    //
+})-&gt;middleware('auth');
+</code></pre><p>Route群組起來(<a href="https://laravel.com/docs/master/routing#route-groups" target="_blank" rel="noopener">https://laravel.com/docs/master/routing#route-groups</a>)，加上middleware</p><pre><code>Route::middleware(['auth'])-&gt;group(function () {
+    Route::get('/', function () {
+        // 使用 auth 中间件
+    });
+});
+</code></pre><p>更進階的做法<br>
+prefix(路由前綴) + group(群組) + Auth middleware(中介層)</p><pre><code>Route::group(['prefix' =&gt; 'admin', 'middleware' =&gt; ['auth']], function(){
+    Route::get('/', function () {
+     // 使用 auth 中间件
+    });
+});
+</code></pre><hr><p>e.g.</p><pre><code>Route::group(['prefix' =&gt; 'admin', 'middleware' =&gt; ['auth']], function(){
+    Route::get('/','AdminController@index');
+
+    Route::get('product', 'ProductController@index');
+    Route::get('product/create', 'ProductController@create');
+    Route::post('product/store', 'ProductController@store');
+    Route::get('product/edit/{id}', 'ProductController@edit');
+    Route::post('product/update/{id}', 'ProductController@update');
+    Route::post('product/destroy/{id}', 'ProductController@destroy');
+
+    Route::get('news', 'NewsController@index');
+    Route::get('news/create', 'NewsController@create');
+    Route::post('news/store', 'NewsController@store');
+    Route::get('news/edit/{id}', 'NewsController@edit');
+    Route::post('news/update/{id}', 'NewsController@update');
+    Route::post('news/destroy/{id}', 'NewsController@destroy');
+});
+</code></pre><hr><h1 id="建立後臺步驟"><a class="anchor hidden-xs" href="#建立後臺步驟" title="建立後臺步驟"><span class="octicon octicon-link"></span></a>建立後臺步驟</h1><h2 id="準備步驟"><a class="anchor hidden-xs" href="#準備步驟" title="準備步驟"><span class="octicon octicon-link"></span></a>準備步驟</h2><ol>
+<li>Run Authentication(<a href="https://laravel.com/docs/master/authentication" target="_blank" rel="noopener">https://laravel.com/docs/master/authentication</a>)</li>
+</ol><pre><code>composer require laravel/ui --dev
+php artisan ui vue --auth
+</code></pre><p>建立使用者資料表</p><pre><code>php artisan migrate 
+</code></pre><ol start="2">
+<li>修改<code>$redirectTo</code><br>
+修改以下路徑的php檔案，要將其中的$redirectTo從 ‘/home’ =&gt; ‘/admin’.</li>
+</ol><ul>
+<li>
+<p>app\Http\Controllers\Auth底下的</p>
+<ul>
+<li>ConfirmPasswordController.php</li>
+<li>LoginController.php</li>
+<li>RegisterController.php</li>
+<li>ResetPasswordController.php</li>
+<li>VerificationController.php</li>
+</ul>
+</li>
+<li>
+<p>app\Http\Middleware底下的</p>
+<ul>
+<li>RedirectIfAuthenticated.php</li>
+</ul>
+</li>
+</ul><p>共有六處要做修改。</p><ol start="3">
+<li>建立後臺要使用的Route列表</li>
+</ol><p>e.g. 以產品管理為例，可以使用以下指令來快速產生ProductController，加上參數<code>--resource</code>可以再把Controller中的程式碼預先長出來。</p><pre><code>php artisan make:controller ProductController --resource
+</code></pre><p>通常來說，在後台的特定管理動作，會包含新增、編輯、刪除三個動作。<br>
+統計共會使用到以下Route步驟</p><pre><code>Route::get('product', 'ProductController@index');
+Route::get('product/create', 'ProductController@create');
+Route::post('product/store', 'ProductController@store');
+Route::get('product/edit/{id}', 'ProductController@edit');
+Route::post('product/update/{id}', 'ProductController@update');
+Route::post('product/destroy/{id}', 'ProductController@destroy');
+</code></pre><p>如果要再仔細說明一下其中每個Route的作用</p><pre><code>Route::get('product', 'ProductController@index');  //----------------&gt; 列出所有產品的頁面
+Route::get('product/create', 'ProductController@create'); //---------&gt; 到建立產品的頁面
+Route::post('product/store', 'ProductController@store'); //----------&gt; "儲存"產品資料
+Route::get('product/edit/{id}', 'ProductController@edit'); //--------&gt; 到特定產品的頁面
+Route::post('product/update/{id}', 'ProductController@update'); //---&gt; "更新"產品資料
+Route::post('product/destroy/{id}', 'ProductController@destroy'); //---&gt; "刪除"產品資料
+</code></pre><ol start="4">
+<li>修改app layout (resources\views\layouts\app.blade.php)</li>
+</ol><p>原始檔案</p><pre><code>&lt;!doctype html&gt;
+&lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+    &lt;!-- CSRF Token --&gt;
+    &lt;meta name="csrf-token" content="{{ csrf_token() }}"&gt;
+
+    &lt;title&gt;{{ config('app.name', 'Laravel') }}&lt;/title&gt;
+
+    &lt;!-- Scripts --&gt;
+    &lt;script src="{{ asset('js/app.js') }}" defer&gt;&lt;/script&gt;
+
+    &lt;!-- Fonts --&gt;
+    &lt;link rel="dns-prefetch" href="//fonts.gstatic.com"&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"&gt;
+
+    &lt;!-- Styles --&gt;
+    &lt;link href="{{ asset('css/app.css') }}" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"&gt;
+            &lt;div class="container"&gt;
+                &lt;a class="navbar-brand" href="{{ url('/') }}"&gt;
+                    {{ config('app.name', 'Laravel') }}
+                &lt;/a&gt;
+                &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}"&gt;
+                    &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+                &lt;/button&gt;
+
+                &lt;div class="collapse navbar-collapse" id="navbarSupportedContent"&gt;
+                    &lt;!-- Left Side Of Navbar --&gt;
+                    &lt;ul class="navbar-nav mr-auto"&gt;
+
+                    &lt;/ul&gt;
+
+                    &lt;!-- Right Side Of Navbar --&gt;
+                    &lt;ul class="navbar-nav ml-auto"&gt;
+                        &lt;!-- Authentication Links --&gt;
+                        @guest
+                            &lt;li class="nav-item"&gt;
+                                &lt;a class="nav-link" href="{{ route('login') }}"&gt;{{ __('Login') }}&lt;/a&gt;
+                            &lt;/li&gt;
+                            @if (Route::has('register'))
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="{{ route('register') }}"&gt;{{ __('Register') }}&lt;/a&gt;
+                                &lt;/li&gt;
+                            @endif
+                        @else
+                            &lt;li class="nav-item dropdown"&gt;
+                                &lt;a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre&gt;
+                                    {{ Auth::user()-&gt;name }} &lt;span class="caret"&gt;&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"&gt;
+                                    &lt;a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"&gt;
+                                        {{ __('Logout') }}
+                                    &lt;/a&gt;
+
+                                    &lt;form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"&gt;
+                                        @csrf
+                                    &lt;/form&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                        @endguest
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+
+        &lt;main class="py-4"&gt;
+            @yield('content')
+        &lt;/main&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p>需修改以下步驟</p><ul>
+<li>補上yield css跟yield js<br>
+<code>@yield('css')</code>  <code>@yield('js')</code></li>
+<li>把app.js 移到 &lt;/body&gt;前<pre><code>&lt;script src="{{ asset('js/app.js') }}"&gt;&lt;/script&gt;
+</code></pre>
+</li>
+</ul><p>最終檔案如下</p><pre><code>&lt;!doctype html&gt;
+&lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+    &lt;!-- CSRF Token --&gt;
+    &lt;meta name="csrf-token" content="{{ csrf_token() }}"&gt;
+
+    &lt;title&gt;{{ config('app.name', 'Laravel') }}&lt;/title&gt;
+
+
+
+    &lt;!-- Fonts --&gt;
+    &lt;link rel="dns-prefetch" href="//fonts.gstatic.com"&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"&gt;
+
+    &lt;!-- Styles --&gt;
+    &lt;link href="{{ asset('css/app.css') }}" rel="stylesheet"&gt;
+
+    @yield('css')
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"&gt;
+            &lt;div class="container"&gt;
+                &lt;a class="navbar-brand" href="{{ url('/') }}"&gt;
+                    {{ config('app.name', 'Laravel') }}
+                &lt;/a&gt;
+                &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}"&gt;
+                    &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+                &lt;/button&gt;
+
+                &lt;div class="collapse navbar-collapse" id="navbarSupportedContent"&gt;
+                    &lt;!-- Left Side Of Navbar --&gt;
+                    &lt;ul class="navbar-nav mr-auto"&gt;
+                        &lt;li class="nav-item"&gt;
+                            &lt;a class="nav-link" href="/admin/news"&gt;最新消息管理&lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;!-- Right Side Of Navbar --&gt;
+                    &lt;ul class="navbar-nav ml-auto"&gt;
+                        &lt;!-- Authentication Links --&gt;
+                        @guest
+                            &lt;li class="nav-item"&gt;
+                                &lt;a class="nav-link" href="{{ route('login') }}"&gt;{{ __('Login') }}&lt;/a&gt;
+                            &lt;/li&gt;
+                            @if (Route::has('register'))
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="{{ route('register') }}"&gt;{{ __('Register') }}&lt;/a&gt;
+                                &lt;/li&gt;
+                            @endif
+                        @else
+                            &lt;li class="nav-item dropdown"&gt;
+                                &lt;a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre&gt;
+                                    {{ Auth::user()-&gt;name }} &lt;span class="caret"&gt;&lt;/span&gt;
+                                &lt;/a&gt;
+
+                                &lt;div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"&gt;
+                                    &lt;a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"&gt;
+                                        {{ __('Logout') }}
+                                    &lt;/a&gt;
+
+                                    &lt;form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"&gt;
+                                        @csrf
+                                    &lt;/form&gt;
+                                &lt;/div&gt;
+                            &lt;/li&gt;
+                        @endguest
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+
+        &lt;main class="py-4"&gt;
+            @yield('content')
+        &lt;/main&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Scripts --&gt;
+    &lt;script src="{{ asset('js/app.js') }}"&gt;&lt;/script&gt;
+    @yield('js')
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p>5.建立index.create.edit 三個頁面</p><ul>
+<li>resources\views\admin\news\index.blade.php</li>
+<li>resources\views\admin\news\create.blade.php</li>
+<li>resources\views\admin\news\edit.blade.php</li>
+</ul><hr><h2 id="Index"><a class="anchor hidden-xs" href="#Index" title="Index"><span class="octicon octicon-link"></span></a>Index</h2><p>基本上要有以下功能</p><ol>
+<li>新增項目的按鈕。</li>
+<li>要列出所有的項目，提供編輯及刪除功能。</li>
+</ol><p>–<br>
+在列表的部分可以使用Datatable,<br>
+Datatable中有一個Bootstrap Styling(<a href="https://datatables.net/examples/styling/bootstrap4" target="_blank" rel="noopener">https://datatables.net/examples/styling/bootstrap4</a>)，可以套用該套件，就可以快速有分頁/查詢的功能列表。</p><p>要小心再分頁中如果有要用到按鈕事件綁定請參考以下連結<br>
+(<a href="https://www.gyrocode.com/articles/jquery-datatables-why-click-event-handler-does-not-work/" target="_blank" rel="noopener">https://www.gyrocode.com/articles/jquery-datatables-why-click-event-handler-does-not-work/</a>)<br>
+JQuery On Click Function not working after appending HTML<br>
+(<a href="https://www.codewall.co.uk/jquery-on-click-function-not-working-after-appending-html/" target="_blank" rel="noopener">https://www.codewall.co.uk/jquery-on-click-function-not-working-after-appending-html/</a>)</p><h3 id="DataTable使用注意事項"><a class="anchor hidden-xs" href="#DataTable使用注意事項" title="DataTable使用注意事項"><span class="octicon octicon-link"></span></a>DataTable使用注意事項</h3><ul>
+<li>記得去引用以下檔案</li>
+</ul><pre><code>&lt;link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"&gt;
+
+&lt;script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"&gt;&lt;/script&gt;
+</code></pre><ul>
+<li>Datatable要記得初始化，可以再去做其他參數設定，如依照特定欄位去排序(<a href="https://datatables.net/reference/option/order" target="_blank" rel="noopener">https://datatables.net/reference/option/order</a>)</li>
+</ul><pre><code>$(document).ready(function() {
+    $('#example').DataTable({
+        "order": [1,"desc"]
+    });
+});
+</code></pre><hr><p>最終<code>index.blade.php</code>檔案如下</p><pre><code>@extends('layouts.app')
+
+@section('css')
+    &lt;link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"&gt;
+@endsection
+
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;最新消息管理 - Index&lt;/div&gt;
+
+                &lt;div class="card-body"&gt;
+                    &lt;a class="btn btn-success" href="/admin/news/create"&gt;新增最新消息&lt;/a&gt;
+                    &lt;hr&gt;
+
+                    &lt;table id="example" class="table table-striped table-bordered" style="width:100%"&gt;
+                        &lt;thead&gt;
+                            &lt;tr&gt;
+                                &lt;th&gt;標題(title)&lt;/th&gt;
+                                &lt;th&gt;排序(sort)&lt;/th&gt;
+                                &lt;th width="120"&gt;功能&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+                            @foreach ($items as $item)
+                                &lt;tr&gt;
+                                    &lt;td&gt;{{ $item-&gt;title}}&lt;/td&gt;
+                                    &lt;td&gt;{{ $item-&gt;sort}}&lt;/td&gt;
+                                    &lt;td&gt;
+                                        &lt;a class="btn btn-success btn-sm" href="/admin/news/edit/{{ $item-&gt;id}}"&gt;編輯&lt;/a&gt;
+                                        &lt;a class="btn btn-danger btn-sm" href="#" data-itemid="{{$item-&gt;id}}"&gt;刪除&lt;/a&gt;
+
+                                        &lt;form class="destroy-form" data-itemid="{{$item-&gt;id}}"
+                                            action="/admin/news/destroy/{{$item-&gt;id}}" method="POST" style="display: none;"&gt;
+                                            @csrf
+                                        &lt;/form&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                            @endforeach
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+
+
+@section('js')
+    &lt;script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function() {
+            $('#example').DataTable({
+                "order": [1,"desc"]
+            });
+            
+            $('#example').on('click','.btn-danger',function(){
+                event.preventDefault();
+                var r = confirm("你確定要刪除此項目嗎?");
+                if (r == true) {
+                    var itemid = $(this).data("itemid");
+                    $(`.destroy-form[data-itemid="${itemid}"]`).submit();
+                }
+            });
+        });
+    &lt;/script&gt;
+@endsection
+
+</code></pre><hr><h2 id="Create"><a class="anchor hidden-xs" href="#Create" title="Create"><span class="octicon octicon-link"></span></a>Create</h2><p>在Create頁面中，主要是做到新增資料的動作，會使用到html中的Form Post(表單發送)。</p><p>–</p><p>Laravel的 From Post的範例如下，通常放於create.blade.php</p><pre><code>&lt;form method="post" action="/admin/news/store" enctype="multipart/form-data"&gt;
+    @csrf
+    &lt;div class="form-group row"&gt;
+        &lt;label for="title" class="col-sm-2 col-form-label"&gt;最新消息標題&lt;/label&gt;
+        &lt;div class="col-sm-10"&gt;
+            &lt;input type="text" class="form-control" id="title" name="title"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group row"&gt;
+        &lt;label for="sort" class="col-sm-2 col-form-label"&gt;sort&lt;/label&gt;
+        &lt;div class="col-sm-10"&gt;
+            &lt;input type="number" class="form-control" id="inputEmail3" value="" name="sort"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group row"&gt;
+        &lt;div class="col-sm-10"&gt;
+            &lt;button type="submit" class="btn btn-primary"&gt;SEND&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><p>在做Form的時候要注意以下內容</p><ul>
+<li>
+<p><strong>Form的屬性</strong><br>
+<code>&lt;form&gt;&lt;/form&gt;</code>標籤中的三個屬性，分別是<code>method</code>、<code>action</code>跟<code>enctype</code></p>
+<ul>
+<li>
+<p>method: form表單發送大多是使用post,因為get會將參數顯示在網址列上，且長度有限制。</p>
+</li>
+<li>
+<p>action: 表單要發送到的路徑位置，請參考Route接收的路徑</p>
+</li>
+<li>
+<p>enctype: 表單的編碼方式，如要上傳檔案，一定要加上。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>CSRF Token</strong><br>
+表單發送時一定要加上 <code>@csrf</code></p>
+</li>
+<li>
+<p><strong>input的name屬性</strong><br>
+未來在contrller接收資料時，是看input的name，一定要加上。</p>
+</li>
+</ul><p>–</p><p>接收Form資料時，Controller的寫法(NewsController.php)</p><pre><code>public function store(Request $request)
+{
+
+    /*
+    *抓出所有表單發送的資料
+    *$request-&gt;all();
+    */
+
+    $title =  $request-&gt;title;
+    $sort =  $request-&gt;sort;
+
+    DB::table('news')-&gt;insert(
+        ['title' =&gt; $title, 'sort' =&gt; $sort]
+    );
+
+    return redirect('/admin/news');
+}
+</code></pre><p>可以於一開始測試時先使用<code>$request-&gt;all();</code><br>
+把資料使用<code>dd($request-&gt;all());</code> 將其所有表單內容抓出來確認。<br>
+確認資料欄位皆正確之後，在塞進資料庫中。</p><p>–</p><p>新增資料進資料庫的動作通常稱為Inserts,在Laravel中有兩種比較常見Inserts的作法。<br>
+1.使用DB<br>
+<code>DB::table('users')-&gt;insert(     ['email' =&gt; 'john@example.com', 'votes' =&gt; 0] );</code></p><p>2.使用ORM<br>
+方法1</p><pre><code>public function store(Request $request)
+    {
+        // Validate the request...
+
+        $flight = new Flight;
+
+        $flight-&gt;name = $request-&gt;name;
+
+        $flight-&gt;save();
+    }
+</code></pre><p>方法2</p><pre><code>$flight = App\Flight::create(['name' =&gt; 'Flight 10']);
+</code></pre><p>方法3</p><pre><code>$flight = App\Flight::create($request-&gt;all());
+</code></pre><hr><h1 id="ORM---使用Model連結至資料庫"><a class="anchor hidden-xs" href="#ORM---使用Model連結至資料庫" title="ORM---使用Model連結至資料庫"><span class="octicon octicon-link"></span></a>ORM - 使用Model連結至資料庫</h1><p>建立Model</p><pre><code>php artisan make:model News
+</code></pre><p>範例Model</p><pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class News extends Model
+{
+    protected $table = 'news';
+    protected $fillable = ['title','sort'];
+}
+
+</code></pre><hr><h2 id="在Controller中使用ORM"><a class="anchor hidden-xs" href="#在Controller中使用ORM" title="在Controller中使用ORM"><span class="octicon octicon-link"></span></a>在Controller中使用ORM</h2><p>首先要記得引用class<br>
+e.g. 使用News的Modal =&gt; <code>use App\News;</code></p><p>新增</p><pre><code>//方法1
+
+$news = new News;
+$news-&gt;title = $request-&gt;title;
+$news-&gt;sort = $request-&gt;sort;
+$news-&gt;save();
+</code></pre><pre><code>//方法2
+
+News::create($request-&gt;all());
+</code></pre><p>修改</p><pre><code>//方法1
+
+$news = News::find($id);
+$news-&gt;title = $request-&gt;title;
+$news-&gt;sort = $request-&gt;sort;
+$news-&gt;save();
+</code></pre><pre><code>//方法2
+
+$news = News::find($id);
+$news-&gt;update($request-&gt;all());
+</code></pre><hr><h1 id="檔案上傳"><a class="anchor hidden-xs" href="#檔案上傳" title="檔案上傳"><span class="octicon octicon-link"></span></a>檔案上傳</h1><h2 id="Laravel---filesystem方法"><a class="anchor hidden-xs" href="#Laravel---filesystem方法" title="Laravel---filesystem方法"><span class="octicon octicon-link"></span></a>Laravel - filesystem方法</h2><p>(<a href="https://nicole929chan.wordpress.com/2018/05/04/laravel5-file-storage/" target="_blank" rel="noopener">https://nicole929chan.wordpress.com/2018/05/04/laravel5-file-storage/</a>)<br>
+(<a href="https://learnku.com/articles/5615/some-thoughts-about-the-storagelink-artisan-command" target="_blank" rel="noopener">https://learnku.com/articles/5615/some-thoughts-about-the-storagelink-artisan-command</a>)</p><pre><code>php artisan storage:link
+</code></pre><p>跑過storage:link之後，類似建立一個捷徑的資料夾<br>
+public/storage → storage/app/public</p><pre><code>//Controller
+
+public function store(Request $request)
+{
+    $requsetData = $request-&gt;all();
+
+    //上傳檔案
+    $file_name = $request-&gt;file('img')-&gt;store('','public');
+    $requsetData['img'] = $file_name;
+
+    Product::create($requsetData);
+
+    return redirect('/admin/product');
+}
+
+//view
+&lt;img src="{{asset('/storage/'.$item-&gt;img)}}" alt=""&gt;
+</code></pre><h2 id="暴力直接move檔案到public中"><a class="anchor hidden-xs" href="#暴力直接move檔案到public中" title="暴力直接move檔案到public中"><span class="octicon octicon-link"></span></a>暴力直接move檔案到/public中</h2><pre><code>$imageName = time().'.'.$request-&gt;image-&gt;getClientOriginalExtension();
+$request-&gt;image-&gt;move(public_path('/uploaded_images'), $imageName);
+</code></pre><p>刪除時會用到File::delete<br>
+要記得use Illuminate\Support\Facades\File;</p><pre><code>public function store(Request $request)
+{
+    $requsetData = $request-&gt;all();
+
+    if($request-&gt;hasFile('img')) {
+        $file = $request-&gt;file('img');
+        $path = $this-&gt;fileUpload($file,'product');
+        $requsetData['img'] = $path;
+    }
+
+    Product::create($requsetData);
+
+    return redirect('/admin/product');
+}
+
+public function update(Request $request, $id)
+{
+    $item = Product::find($id);
+
+    $requsetData = $request-&gt;all();
+    if($request-&gt;hasFile('img')) {
+        $old_image = $item-&gt;img;
+        $file = $request-&gt;file('img');
+        $path = $this-&gt;fileUpload($file,'product');
+        $requsetData['img'] = $path;
+        File::delete(public_path().$old_image);
+    }
+
+    $item-&gt;update($requsetData);
+
+    return redirect('/admin/product');
+}
+
+public function destroy($id)
+{
+    $item = Product::find($id);
+    $old_image = $item-&gt;img;
+    if(file_exists(public_path().$old_image)){
+        File::delete(public_path().$old_image);
+    }
+    $item-&gt;delete();
+
+    return redirect('/admin/product');
+}
+
+private function fileUpload($file,$dir){
+    //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+    if( ! is_dir('upload/')){
+        mkdir('upload/');
+    }
+    //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+    if ( ! is_dir('upload/'.$dir)) {
+        mkdir('upload/'.$dir);
+    }
+    //取得檔案的副檔名
+    $extension = $file-&gt;getClientOriginalExtension();
+    //檔案名稱會被重新命名
+    $filename = strval(time().md5(rand(100, 200))).'.'.$extension;
+    //移動到指定路徑
+    move_uploaded_file($file, public_path().'/upload/'.$dir.'/'.$filename);
+    //回傳 資料庫儲存用的路徑格式
+    return '/upload/'.$dir.'/'.$filename;
+}
+</code></pre><hr><p><strong>Summernoe 上傳圖片方法</strong></p><ol>
+<li>使用原本的base64</li>
+<li>另外上傳圖片(沒有刪除機制，會占用硬碟空間)</li>
+</ol><pre><code>前端
+&lt;script&gt;
+    $(document).ready(function() {
+        $('#description').summernote({
+            height: 150,
+            lang: 'zh-TW',
+            callbacks: {
+                onImageUpload: function(files) {
+                    for(let i=0; i &lt; files.length; i++) {
+                        $.upload(files[i]);
+                    }
+                },
+                onMediaDelete : function(target) {
+                    $.delete(target[0].getAttribute("src"));
+                }
+            },
+        });
+
+
+        $.upload = function (file) {
+            let out = new FormData();
+            out.append('file', file, file.name);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: 'POST',
+                url: '/admin/ajax_upload_img',
+                contentType: false,
+                cache: false,
+                processData: false,
+                data: out,
+                success: function (img) {
+                    $('#description').summernote('insertImage', img);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+            });
+        };
+
+        $.delete = function (file_link) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: 'POST',
+                url: '/admin/ajax_delete_img',
+                data: {file_link:file_link},
+                success: function (img) {
+                    console.log("delete:",img);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+            });
+        }
+   });
+&lt;/script&gt;
+
+後端
+//Route Web.php
+Route::post('/ajax_upload_img','AdminController@ajax_upload_img');
+Route::post('/ajax_delete_img','AdminController@ajax_delete_img');
+
+//Controller AdminController
+ public function ajax_upload_img()
+{
+    // A list of permitted file extensions
+    $allowed = array('png', 'jpg', 'gif','zip');
+    if(isset($_FILES['file']) &amp;&amp; $_FILES['file']['error'] == 0){
+        $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+        if(!in_array(strtolower($extension), $allowed)){
+            echo '{"status":"error"}';
+            exit;
+        }
+        $name = strval(time().md5(rand(100, 200)));
+        $ext = explode('.', $_FILES['file']['name']);
+        $filename = $name . '.' . $ext[1];
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if( ! is_dir('upload/')){
+            mkdir('upload/');
+        }
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if ( ! is_dir('upload/img')) {
+            mkdir('upload/img');
+        }
+        $destination = public_path().'/upload/img/'. $filename; //change this directory
+        $location = $_FILES["file"]["tmp_name"];
+        move_uploaded_file($location, $destination);
+        echo "/upload/img/".$filename;//change this URL
+    }
+    exit;
+}
+
+public function ajax_delete_img(Request $request){
+    if(file_exists(public_path().$request-&gt;file_link)){
+        File::delete(public_path().$request-&gt;file_link);
+    }
+}
+
+
+</code></pre><hr><h1 id="Auth-in-webphp"><a class="anchor hidden-xs" href="#Auth-in-webphp" title="Auth-in-webphp"><span class="octicon octicon-link"></span></a><strong>Auth in web.php</strong></h1><p>Auth::routes();</p><pre><code>// Laravel 5.7, Laravel 5.8, and Laravel 6.0
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')-&gt;name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')-&gt;name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')-&gt;name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')-&gt;name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')-&gt;name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')-&gt;name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')-&gt;name('password.update');
+
+// Email Verification Routes...
+Route::get('email/verify', 'Auth\VerificationController@show')-&gt;name('verification.notice');
+Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')-&gt;name('verification.verify'); // v6.x
+/* Route::get('email/verify/{id}', 'Auth\VerificationController@verify')-&gt;name('verification.verify'); // v5.x */
+Route::get('email/resend', 'Auth\VerificationController@resend')-&gt;name('verification.resend');
+</code></pre><pre><code>Auth::routes(['register' =&gt; false,'reset' =&gt; false,'verify' =&gt; false]);
+</code></pre><hr><h1 id="ORM---Relationships"><a class="anchor hidden-xs" href="#ORM---Relationships" title="ORM---Relationships"><span class="octicon octicon-link"></span></a>ORM - Relationships</h1><p>一對多 (三層)</p><h2 id="Model"><a class="anchor hidden-xs" href="#Model" title="Model"><span class="octicon octicon-link"></span></a>Model</h2><pre><code>//產品類別
+&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ProductType extends Model
+{
+    protected $table = 'product_type';
+    protected $fillable = ['type_name'];
+
+    public function products()
+    {
+        return $this-&gt;hasMany('App\Product','type_id')-&gt;orderBy('sort', 'desc');
+    }
+}
+
+
+//產品
+&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    protected $table = 'products';
+    protected $fillable = ['title','description','img','sort','type_id'];
+
+    public function productType()
+    {
+        return $this-&gt;belongsTo('App\ProductType','type_id');
+    }
+
+    public function product_imgs()
+    {
+        return $this-&gt;hasMany('App\ProductImg','type_id');
+    }
+}
+
+
+//產品圖片
+&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ProductImg extends Model
+{
+    protected $table = 'product_imgs';
+    protected $fillable = ['product_id','img'];
+
+}
+
+
+</code></pre><h2 id="Controller"><a class="anchor hidden-xs" href="#Controller" title="Controller"><span class="octicon octicon-link"></span></a>Controller</h2><pre><code>產品類別 再加上 產品(多個)
+
+
+$ProductTypes = ProductType::orderBy('sort', 'desc')-&gt;with('products')-&gt;get();
+ 
+ 
+ //view
+ 
+@foreach ($ProductTypes as $ProductType)
+    //$ProductType 為單一類別
+    @foreach ($ProductType-&gt;products as $product)
+        //$product 為單一產品
+    @endforeach
+@endforeach
+
+</code></pre><hr><h1 id="多張圖片上傳"><a class="anchor hidden-xs" href="#多張圖片上傳" title="多張圖片上傳"><span class="octicon octicon-link"></span></a>多張圖片上傳</h1><h2 id="KeyWords"><a class="anchor hidden-xs" href="#KeyWords" title="KeyWords"><span class="octicon octicon-link"></span></a>KeyWords</h2><ul>
+<li>
+<p>laravel file upload multiple<br>
+(<a href="https://stackoverflow.com/questions/39846148/laravel-5-3-multiple-file-uploads" target="_blank" rel="noopener">https://stackoverflow.com/questions/39846148/laravel-5-3-multiple-file-uploads</a>)</p>
+</li>
+<li>
+<p>laravel create get id<br>
+(<a href="https://stackoverflow.com/questions/37075148/laravel-get-the-id-of-usercreate-and-insert-new-row-using-that-id" target="_blank" rel="noopener">https://stackoverflow.com/questions/37075148/laravel-get-the-id-of-usercreate-and-insert-new-row-using-that-id</a>)<br>
+(<a href="https://laravelcode.com/post/laravel-55-get-last-inserted-id-with-example" target="_blank" rel="noopener">https://laravelcode.com/post/laravel-55-get-last-inserted-id-with-example</a>)</p>
+</li>
+<li>
+<p>js refresh div<br>
+(<a href="https://stackoverflow.com/questions/33801650/how-do-i-refresh-a-div-content" target="_blank" rel="noopener">https://stackoverflow.com/questions/33801650/how-do-i-refresh-a-div-content</a>)</p>
+</li>
+<li>
+<p>js input onchange ajax<br>
+(<a href="https://stackoverflow.com/questions/23712799/post-input-onchange-with-ajax" target="_blank" rel="noopener">https://stackoverflow.com/questions/23712799/post-input-onchange-with-ajax</a>)</p>
+</li>
+</ul><pre><code>//HTML的部分
+//iuput的name後面要有方括弧
+//要有屬性 multiple
+
+&lt;input type="file" id="imgs" name="imgs[]" multiple required&gt;
+
+//Controller
+
+ $requsetData = $request-&gt;all();
+
+//單一檔案
+if($request-&gt;hasFile('img')) {
+    $file = $request-&gt;file('img');
+    $path = $this-&gt;fileUpload($file,'product');
+    $requsetData['img'] = $path;
+}
+
+$new_product =  Product::create($requsetData);
+$new_product_id = $new_product-&gt;id;
+
+//多個檔案
+$files = $request-&gt;file('imgs');
+if($request-&gt;hasFile('imgs'))
+{
+    foreach ($files as $file) {
+        //上傳圖片
+        $path = $this-&gt;fileUpload($file,'product');
+        //新增資料進DB
+        $product_img = new ProductImg;
+        $product_img-&gt;product_id = $new_product_id;
+        $product_img-&gt;img = $path;
+        $product_img-&gt;save();
+
+    }
+}
+
+</code></pre><h2 id="完整的Controller"><a class="anchor hidden-xs" href="#完整的Controller" title="完整的Controller"><span class="octicon octicon-link"></span></a>完整的Controller</h2><pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Product;
+use App\ProductImg;
+use App\ProductType;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $items =  Product::with('productType')-&gt;get();
+        return view('admin.product.index',compact("items"));
+    }
+
+    public function create()
+    {
+        $productTypes = ProductType::all();
+        return view('admin.product.create',compact('productTypes'));
+    }
+
+    public function store(Request $request)
+    {
+        $requsetData = $request-&gt;all();
+
+        //單一檔案
+        if($request-&gt;hasFile('img')) {
+            $file = $request-&gt;file('img');
+            $path = $this-&gt;fileUpload($file,'product');
+            $requsetData['img'] = $path;
+        }
+
+        $new_product =  Product::create($requsetData);
+        $new_product_id = $new_product-&gt;id;
+
+        //多個檔案
+        if($request-&gt;hasFile('imgs'))
+        {
+            $files = $request-&gt;file('imgs');
+            foreach ($files as $file) {
+                //上傳圖片
+                $path = $this-&gt;fileUpload($file,'product_imgs');
+                //新增資料進DB
+                $product_img = new ProductImg;
+                $product_img-&gt;product_id = $new_product_id;
+                $product_img-&gt;img = $path;
+                $product_img-&gt;save();
+            }
+        }
+
+        return redirect('/admin/product');
+    }
+
+    public function edit($id)
+    {
+        $productTypes = ProductType::all();
+        $item = Product::where('id',$id)-&gt;with('product_imgs')-&gt;first();
+        return view('admin.product.edit',compact('item','productTypes'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $item = Product::find($id);
+
+        $requsetData = $request-&gt;all();
+        if($request-&gt;hasFile('img')) {      //如果使用者有重新上傳圖片
+            $old_image = $item-&gt;img;        //抓取舊圖片路徑
+            File::delete(public_path().$old_image); //把舊圖片刪除
+
+            //上傳圖片
+            $file = $request-&gt;file('img');
+            $path = $this-&gt;fileUpload($file,'product');
+            $requsetData['img'] = $path;
+        }
+
+
+        //多個檔案
+        if($request-&gt;hasFile('imgs'))
+        {
+            $files = $request-&gt;file('imgs');
+            foreach ($files as $file) {
+                //上傳圖片
+                $path = $this-&gt;fileUpload($file,'product_imgs');
+                //新增資料進DB
+                $product_img = new ProductImg;
+                $product_img-&gt;product_id = $id;
+                $product_img-&gt;img = $path;
+                $product_img-&gt;save();
+            }
+        }
+
+        $item-&gt;update($requsetData);
+
+        return redirect('/admin/product');
+    }
+
+    public function destroy($id)
+    {
+        $item = Product::find($id);
+
+        //單一圖片的刪除
+        $old_image = $item-&gt;img;
+        if(file_exists(public_path().$old_image)){
+            File::delete(public_path().$old_image);
+        }
+        $item-&gt;delete();
+
+        //多張圖片的刪除
+        $product_imgs = ProductImg::where('product_id',$id)-&gt;get();
+        foreach($product_imgs as $product_img){
+            $old_product_img = $product_img-&gt;img;
+            if(file_exists(public_path().$old_product_img)){
+                File::delete(public_path().$old_product_img);
+            }
+
+            $product_img-&gt;delete();
+        }
+
+
+
+        return redirect('/admin/product');
+    }
+
+    private function fileUpload($file,$dir){
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if( ! is_dir('upload/')){
+            mkdir('upload/');
+        }
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if ( ! is_dir('upload/'.$dir)) {
+            mkdir('upload/'.$dir);
+        }
+        //取得檔案的副檔名
+        $extension = $file-&gt;getClientOriginalExtension();
+        //檔案名稱會被重新命名
+        $filename = strval(time().md5(rand(100, 200))).'.'.$extension;
+        //移動到指定路徑
+        move_uploaded_file($file, public_path().'/upload/'.$dir.'/'.$filename);
+        //回傳 資料庫儲存用的路徑格式
+        return '/upload/'.$dir.'/'.$filename;
+    }
+}
+
+</code></pre><h2 id="Edit-Page"><a class="anchor hidden-xs" href="#Edit-Page" title="Edit-Page"><span class="octicon octicon-link"></span></a>Edit Page</h2><pre><code>@extends('layouts.app')
+
+@section('css')
+    &lt;style&gt;
+        .product_imgs{
+            position: relative;
+        }
+        .product_imgs .btn-danger{
+            border-radius: 50%;
+            position: absolute;
+            right: 20px;
+            top: 5px;
+        }
+        .product_imgs .sort{
+            display: flex;
+            margin-top: 5px;
+        }
+        .product_imgs label{
+            margin: 0 5px;
+            line-height: 37px;
+        }
+        .product_imgs input{
+            width: 100%;
+        }
+    &lt;/style&gt;
+@endsection
+
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;產品管理 - Edit&lt;/div&gt;
+
+                &lt;div class="card-body"&gt;
+                    &lt;form method="post" action="/admin/product/update/{{$item-&gt;id}}" enctype="multipart/form-data"&gt;
+                        @csrf
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="type_id" class="col-sm-2 col-form-label"&gt;產品類別&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;select class="form-control" name="type_id" id="type_id"&gt;
+                                    @foreach ($productTypes as $productType)
+                                    &lt;option value="{{ $productType-&gt;id }}" @if($item-&gt;type_id === $productType-&gt;id)
+                                        selected @endif&gt;{{ $productType-&gt;type_name }}&lt;/option&gt;
+                                    @endforeach
+                                &lt;/select&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;hr&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;現有產品圖片&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;img class="img-fluid" src="{{$item-&gt;img}}" alt=""&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;重新上傳產品圖片 &lt;br&gt;&lt;small
+                                    class="text-danger"&gt;*建議圖片尺寸500px(寬)*700px(高)&lt;/small&gt;&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="file" class="form-control" id="img" value="" name="img"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;現有產品組圖片&lt;/label&gt;
+                            @foreach ($item-&gt;product_imgs as $product_img)
+                            &lt;div class="col-sm-2 product_imgs" data-productimgid="{{$product_img-&gt;id}}"&gt;
+                                &lt;img class="img-fluid" src="{{$product_img-&gt;img}}" alt=""&gt;
+                            &lt;button class="btn btn-danger btn-sm" data-productimgid="{{$product_img-&gt;id}}" type="button"&gt;X&lt;/button&gt;
+                                &lt;div class="sort"&gt;
+                                    &lt;label for="imgs"&gt;Sort&lt;/label&gt;
+                                    &lt;input class="form-control" type="text"&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            @endforeach
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;重新上傳產品組圖片 &lt;br&gt;&lt;small
+                                    class="text-danger"&gt;*建議圖片尺寸500px(寬)*700px(高)&lt;/small&gt;&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="file" class="form-control" id="imgs" name="imgs[]" multiple&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;hr&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="title" class="col-sm-2 col-form-label"&gt;標題&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="text" class="form-control" id="title" value="{{$item-&gt;title}}" name="title"
+                                    required&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="description" class="col-sm-2 col-form-label"&gt;敘述&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;textarea class="form-control" name="description" id="description"
+                                    rows="5"&gt;{{$item-&gt;description}}&lt;/textarea&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="sort" class="col-sm-2 col-form-label"&gt;排序(sort)&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="number" class="form-control" id="sort" value="{{$item-&gt;sort}}" name="sort"
+                                    value="1" required&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;hr&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;div class="col-sm-12 text-center"&gt;
+                                &lt;button type="submit" class="btn btn-primary"&gt;SEND&lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+
+
+@section('js')
+&lt;script&gt;
+    $(document).ready(function() {
+            $('#description').summernote({
+                height: 150,
+                lang: 'zh-TW',
+                callbacks: {
+                    onImageUpload: function(files) {
+                        for(let i=0; i &lt; files.length; i++) {
+                            $.upload(files[i]);
+                        }
+                    },
+                    onMediaDelete : function(target) {
+                        $.delete(target[0].getAttribute("src"));
+                    }
+                },
+            });
+
+
+            $.upload = function (file) {
+                let out = new FormData();
+                out.append('file', file, file.name);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: 'POST',
+                    url: '/admin/ajax_upload_img',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    data: out,
+                    success: function (img) {
+                        $('#description').summernote('insertImage', img);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus + " " + errorThrown);
+                    }
+                });
+            };
+
+            $.delete = function (file_link) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: 'POST',
+                    url: '/admin/ajax_delete_img',
+                    data: {file_link:file_link},
+                    success: function (img) {
+                        console.log("delete:",img);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus + " " + errorThrown);
+                    }
+                });
+            }
+
+            $('.product_imgs .btn-danger').click(function () {
+
+                var product_imgs_id = $(this).data('productimgid');
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: 'POST',
+                    url: '/admin/ajax_delete_product_imgs',
+                    data: {product_imgs_id: product_imgs_id},
+                    success: function (res) {
+                        $( `.product_imgs[data-productimgid='${product_imgs_id}']` ).remove();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus + " " + errorThrown);
+                    }
+                });
+            });
+       });
+&lt;/script&gt;
+@endsection
+
+</code></pre><h2 id="web-ajax-Route-and-controller"><a class="anchor hidden-xs" href="#web-ajax-Route-and-controller" title="web-ajax-Route-and-controller"><span class="octicon octicon-link"></span></a>web ajax Route and controller</h2><pre><code>//Web.php
+Route::post('/ajax_delete_product_imgs','AdminController@ajax_delete_product_imgs');
+
+
+//AdminController
+public function ajax_delete_product_imgs(Request $request)
+{
+    $product_imgs_id = $request-&gt;product_imgs_id;
+
+    //多張圖片組的單一圖片刪除
+    $product_img = ProductImg::where('id',$product_imgs_id)-&gt;first();
+    $old_product_img = $product_img-&gt;img;
+    if(file_exists(public_path().$old_product_img)){
+        File::delete(public_path().$old_product_img);
+    }
+    $product_img-&gt;delete();
+    echo '{"status":"success","message":"delete file success"}';
+}
+</code></pre><hr><h1 id="各個類別限定三個產品的作法"><a class="anchor hidden-xs" href="#各個類別限定三個產品的作法" title="各個類別限定三個產品的作法"><span class="octicon octicon-link"></span></a>各個類別限定三個產品的作法</h1><pre><code>$ProductTypes = ProductType::orderBy('sort', 'desc')-&gt;with('products')-&gt;get();
+foreach( $ProductTypes as $type){
+    $type-&gt;products = $type-&gt;products-&gt;take(3);
+}
+</code></pre><hr><h1 id="多張圖片排序---使用Muuri未完成-or-手動輸入排序數字"><a class="anchor hidden-xs" href="#多張圖片排序---使用Muuri未完成-or-手動輸入排序數字" title="多張圖片排序---使用Muuri未完成-or-手動輸入排序數字"><span class="octicon octicon-link"></span></a>多張圖片排序 - 使用Muuri(未完成) or 手動輸入排序數字</h1><p>Edit-Page</p><pre><code>@extends('layouts.app')
+
+@section('css')
+&lt;style&gt;
+    .product_imgs {
+        position: relative;
+    }
+
+    .product_imgs .btn-danger {
+        border-radius: 50%;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+
+    .product_imgs .sort {
+        display: flex;
+        margin-top: 5px;
+    }
+
+    .product_imgs label {
+        margin: 0 5px;
+        line-height: 37px;
+    }
+
+    .product_imgs input {
+        width: 100%;
+    }
+
+    .grid {
+        position: relative;
+        min-height: 120px;
+    }
+
+    .item {
+        display: block;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        z-index: 1;
+    }
+
+    .item.muuri-item-dragging {
+        z-index: 3;
+    }
+
+    .item.muuri-item-releasing {
+        z-index: 2;
+    }
+
+    .item.muuri-item-hidden {
+        z-index: 0;
+    }
+
+    .item-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+&lt;/style&gt;
+@endsection
+
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;產品管理 - Edit&lt;/div&gt;
+
+                &lt;div class="card-body"&gt;
+                    &lt;form method="post" action="/admin/product/update/{{$item-&gt;id}}" enctype="multipart/form-data"&gt;
+                        @csrf
+
+                        &lt;input type="text" id="new_sort" name="new_sort" value="" hidden&gt;
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="type_id" class="col-sm-2 col-form-label"&gt;產品類別&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;select class="form-control" name="type_id" id="type_id"&gt;
+                                    @foreach ($productTypes as $productType)
+                                    &lt;option value="{{ $productType-&gt;id }}" @if($item-&gt;type_id === $productType-&gt;id)
+                                        selected @endif&gt;{{ $productType-&gt;type_name }}&lt;/option&gt;
+                                    @endforeach
+                                &lt;/select&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;hr&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;現有產品圖片&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;img class="img-fluid" src="{{$item-&gt;img}}" alt=""&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;重新上傳產品圖片 &lt;br&gt;&lt;small
+                                    class="text-danger"&gt;*建議圖片尺寸500px(寬)*700px(高)&lt;/small&gt;&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="file" class="form-control" id="img" value="" name="img"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;現有產品組圖片&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;div class="grid"&gt;
+                                    @foreach ($item-&gt;product_imgs as $product_img)
+                                    &lt;div class="item" data-productimgid="{{$product_img-&gt;id}}"&gt;
+                                        &lt;div class="item-content"&gt;
+                                            &lt;div class="product_imgs" data-productimgid="{{$product_img-&gt;id}}"&gt;
+                                                &lt;img class="img-fluid" src="{{$product_img-&gt;img}}" alt=""&gt;
+                                                &lt;button class="btn btn-danger btn-sm"
+                                                    data-productimgid="{{$product_img-&gt;id}}" type="button"&gt;X&lt;/button&gt;
+                                                &lt;div class="sort"&gt;
+                                                    &lt;label for="imgs"&gt;Sort&lt;/label&gt;
+                                                    &lt;input class="form-control"
+                                                        onchange="post_ajax_sort(this,{{$product_img-&gt;id}})"
+                                                type="text" value="{{$product_img-&gt;sort}}"&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    @endforeach
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="img" class="col-sm-2 col-form-label"&gt;重新上傳產品組圖片 &lt;br&gt;&lt;small
+                                    class="text-danger"&gt;*建議圖片尺寸500px(寬)*700px(高)&lt;/small&gt;&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="file" class="form-control" id="imgs" name="imgs[]" multiple&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;hr&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="title" class="col-sm-2 col-form-label"&gt;標題&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="text" class="form-control" id="title" value="{{$item-&gt;title}}" name="title"
+                                    required&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="description" class="col-sm-2 col-form-label"&gt;敘述&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;textarea class="form-control" name="description" id="description"
+                                    rows="5"&gt;{{$item-&gt;description}}&lt;/textarea&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="sort" class="col-sm-2 col-form-label"&gt;排序(sort)&lt;/label&gt;
+                            &lt;div class="col-sm-10"&gt;
+                                &lt;input type="number" class="form-control" id="sort" value="{{$item-&gt;sort}}" name="sort"
+                                    value="1" required&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;hr&gt;
+                        &lt;div class="form-group row"&gt;
+                            &lt;div class="col-sm-12 text-center"&gt;
+                                &lt;button type="submit" class="btn btn-primary"&gt;SEND&lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+
+
+@section('js')
+&lt;script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(document).ready(function() {
+        var grid = new Muuri('.grid',{
+            dragEnabled: true,
+        }).on('move', function () {
+            getOrder(grid);
+        });
+
+
+        function getOrder(grid) {
+            var currentItems = grid.getItems();
+            var currentItemIds = currentItems.map(function (item) {
+                return item.getElement().getAttribute('data-productimgid')
+            });
+            $('#new_sort').val(currentItemIds.join());
+        }
+
+
+        $('#description').summernote({
+            height: 150,
+            lang: 'zh-TW',
+            callbacks: {
+                onImageUpload: function(files) {
+                    for(let i=0; i &lt; files.length; i++) {
+                        $.upload(files[i]);
+                    }
+                },
+                onMediaDelete : function(target) {
+                    $.delete(target[0].getAttribute("src"));
+                }
+            },
+        });
+
+
+        $.upload = function (file) {
+            let out = new FormData();
+            out.append('file', file, file.name);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: 'POST',
+                url: '/admin/ajax_upload_img',
+                contentType: false,
+                cache: false,
+                processData: false,
+                data: out,
+                success: function (img) {
+                    $('#description').summernote('insertImage', img);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+            });
+        };
+
+        $.delete = function (file_link) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: 'POST',
+                url: '/admin/ajax_delete_img',
+                data: {file_link:file_link},
+                success: function (img) {
+                    console.log("delete:",img);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+            });
+        }
+
+        $('.product_imgs .btn-danger').click(function () {
+
+            var product_imgs_id = $(this).data('productimgid');
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: 'POST',
+                url: '/admin/ajax_delete_product_imgs',
+                data: {product_imgs_id: product_imgs_id},
+                success: function (res) {
+                    $( `.product_imgs[data-productimgid='${product_imgs_id}']` ).remove();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+            });
+        });
+    });
+
+
+    function post_ajax_sort(element,product_imgs_id) {
+        var product_imgs_id;
+        var sort_value = element.value;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: 'POST',
+            url: '/admin/ajax_sort_product_imgs',
+            data: {product_imgs_id: product_imgs_id,sort_value: sort_value},
+            success: function (res) {
+                // $( `.product_imgs[data-productimgid='${product_imgs_id}']` ).remove();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus + " " + errorThrown);
+            }
+        });
+    }
+&lt;/script&gt;
+@endsection
+
+</code></pre><p>後端送JS</p><p>Route</p><pre><code>Route::post('/ajax_sort_product_imgs','AdminController@ajax_sort_product_imgs');
+</code></pre><p>Controller</p><pre><code>public function ajax_sort_product_imgs(Request $request)
+{
+    $product_imgs_id = $request-&gt;product_imgs_id;
+    $sort_value = $request-&gt;sort_value;
+
+    $ProductImg = ProductImg::find($product_imgs_id);
+    $ProductImg-&gt;sort = $sort_value;
+    $ProductImg-&gt;save();
+    echo '{"status":"success","message":"sort img success"}';
+}
+</code></pre><hr><h1 id="自動產生Model"><a class="anchor hidden-xs" href="#自動產生Model" title="自動產生Model"><span class="octicon octicon-link"></span></a>自動產生Model</h1><p>由建立好的DB後，可自行產生其Model<br>
+<a href="https://github.com/krlove/eloquent-model-generator" target="_blank" rel="noopener">https://github.com/krlove/eloquent-model-generator</a></p><blockquote>
+<p>要記得在Migration或DB設定好關聯，即可在Model中自動附帶上relationship</p>
+</blockquote><hr><h1 id="購物車"><a class="anchor hidden-xs" href="#購物車" title="購物車"><span class="octicon octicon-link"></span></a>購物車</h1><p>在選擇使用Laravel shopping cart購物車套件的時候，要注意支援的Laravel版本<br>
+這次選擇的是 darryldecode/laravelshoppingcart<br>
+(<a href="https://github.com/darryldecode/laravelshoppingcart" target="_blank" rel="noopener">https://github.com/darryldecode/laravelshoppingcart</a>)</p><p>依照不同的版本，支援Laravel 5.1~ ,Laravel 5.5, 5.6 or 5.7~,6<br>
+For Laravel 5.1~</p><pre><code>composer require "darryldecode/cart:~2.0"
+</code></pre><p>For Laravel 5.5, 5.6 or 5.7~,6</p><pre><code>composer require "darryldecode/cart:~4.0"
+
+or
+
+composer require "darryldecode/cart"
+</code></pre><hr><p>購物車有分是否要指定User or 不分User的版本<br>
+下面為不分User的版本範例<br>
+可以看到<code>\Cart::</code>之後直接接著methods</p><pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Darryldecode\Cart\Cart;
+use Illuminate\Http\Request;
+
+class CartController extends Controller
+{
+    public function addProductToCar(){
+        \Cart::add(455, 'Sample Item', 100.99, 2, array());
+    }
+
+    public function getContent()
+    {
+        $content = \Cart::getContent();
+    }
+
+    public function TotalCart()
+    {
+        $total = \Cart::getTotal();
+    }
+
+}
+</code></pre><hr><h2 id="加入購物車"><a class="anchor hidden-xs" href="#加入購物車" title="加入購物車"><span class="octicon octicon-link"></span></a>加入購物車</h2><p>下面為指定User，並新增加入購物車的範例程式<br>
+在View部分主要是以Ajax方式，將產品編號(productID)傳至後端<br>
+由後端Controller進行加入購物車的動作，並統計所有購物車內的產品數量<br>
+將統計後的數字傳至前端，更新Navbar上的購物車數字</p><p>以下為製作時須注意事項</p><ul>
+<li>於前端要送出ajax要注意crsf token，要於ajax補上相關設定</li>
+<li>加入購物車需要填入相關參數，除屬性(attributess)之外，其餘皆不能為空值</li>
+<li>使用購物車時要確定有沒有要指定使用者，如果有要加上<code>\Cart::session($userID)</code></li>
+<li>上述的<code>userID</code>為使用者的ID，要再透過以下方式取得<code>$userId = auth()-&gt;user()-&gt;id;</code><br>
+完整範例程式碼如下</li>
+</ul><pre><code>$userId = auth()-&gt;user()-&gt;id; // or any string represents user identifier
+\Cart::session($userId)-&gt;add('456', 'Product Name', '200', 1, array());
+</code></pre><h3 id="WEB"><a class="anchor hidden-xs" href="#WEB" title="WEB"><span class="octicon octicon-link"></span></a>WEB</h3><pre><code>// testcart
+Route::post('/addcart', 'cartcontroller@addcart');
+
+Route::get('/getcontent', 'cartcontroller@getcontent');
+
+Route::get('/totalcart', 'cartcontroller@totalcart');
+
+</code></pre><h3 id="Controller1"><a class="anchor hidden-xs" href="#Controller1" title="Controller1"><span class="octicon octicon-link"></span></a>Controller</h3><pre><code>public function addcart(Request $request)
+{
+    $product_id = $request-&gt;product_id;
+
+
+    $product = Product::find($product_id);
+
+
+    $userId = auth()-&gt;user()-&gt;id; // or any string represents user identifier
+    \Cart::session($userId)-&gt;add($product_id, $product-&gt;title, $product-&gt;price, 1, array());
+
+    $cartTotalQuantity = \Cart::session($userId)-&gt;getTotalQuantity();
+     return $cartTotalQuantity;
+
+}
+
+</code></pre><h3 id="Product"><a class="anchor hidden-xs" href="#Product" title="Product"><span class="octicon octicon-link"></span></a>Product</h3><p>Html按鈕 加入購物車按鈕</p><pre><code>  &lt;button class="btn btn-danger addcart" data-productid="{{$product-&gt;id}}"&gt;加入購物車&lt;/button&gt;
+</code></pre><p>JS按鍵事件綁定 + Ajax發送</p><pre><code>$('.addcart').click(function () {
+    var product_id = $(this).data('productid');
+    console.log(product_id);
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        method: 'POST',
+        url: '/addcart',
+        data: {product_id:product_id},
+        success: function (res) {
+            $('#cartTotalQuantity').text(res);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error(textStatus + " " + errorThrown);
+        }
+    });
+});
+</code></pre><h3 id="front-layout"><a class="anchor hidden-xs" href="#front-layout" title="front-layout"><span class="octicon octicon-link"></span></a>front layout</h3><p>在Navbar上要顯示出購物車的數量</p><pre><code>&lt;i class="icon-shopping-cart"&gt;
+    &lt;span id="cartTotalQuantity"&gt;
+        {{-- {{ \Cart::getTotalQuantity() }} 沒指定人的寫法 --}}
+        {{-- 指定對象的PHP原生寫法 --}}
+        @guest
+            0
+        @else
+        &lt;?php
+            $userId = auth()-&gt;user()-&gt;id;
+            $cartTotalQuantity = \Cart::session($userId)-&gt;getTotalQuantity();
+            echo $cartTotalQuantity; 
+        ?&gt;
+        @endguest
+    &lt;/span&gt;
+&lt;/i&gt;
+</code></pre><hr><h2 id="結帳頁--修改購物車上的產品數量"><a class="anchor hidden-xs" href="#結帳頁--修改購物車上的產品數量" title="結帳頁--修改購物車上的產品數量"><span class="octicon octicon-link"></span></a>結帳頁 + 修改購物車上的產品數量</h2><h3 id="Web"><a class="anchor hidden-xs" href="#Web" title="Web"><span class="octicon octicon-link"></span></a>Web</h3><pre><code>Route::get('/cart', 'CartController@cart'); //結帳頁
+Route::post('/changeProductQty','CartController@changeProductQty'); //修改產品數量ajax
+</code></pre><h3 id="Controller2"><a class="anchor hidden-xs" href="#Controller2" title="Controller2"><span class="octicon octicon-link"></span></a>Controller</h3><pre><code>public function cart()
+{
+    $content = \Cart::getContent()-&gt;sort(); //取得購物車產品後排序
+    $total = \Cart::getTotal();
+
+    return view("front.cart",compact('content','total'));
+}
+
+public function changeProductQty(Request $request)
+{
+    $product_id = $request-&gt;product_id;
+    $new_qty = $request-&gt;new_qty;
+
+    \Cart::update($product_id , array(
+        'quantity' =&gt; array(
+            'relative' =&gt; false,
+            'value' =&gt; $new_qty
+        ),
+      ));
+
+    return "suceess";
+}
+</code></pre><h3 id="View"><a class="anchor hidden-xs" href="#View" title="View"><span class="octicon octicon-link"></span></a>View</h3><pre><code>@extends('layouts.front_layout')
+
+@section('css')
+@endsection
+
+@section('content')
+&lt;div class="container"&gt;
+    &lt;h1&gt;Cart結帳頁&lt;/h1&gt;
+    &lt;div&gt;
+        &lt;table class="table table-dark"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;#&lt;/th&gt;
+                    &lt;th scope="col"&gt;ProductName&lt;/th&gt;
+                    &lt;th scope="col"&gt;Price&lt;/th&gt;
+                    &lt;th scope="col"&gt;Qty&lt;/th&gt;
+                    &lt;th scope="col"&gt;SubTotal&lt;/th&gt;
+                    &lt;th width="50"&gt;Delete&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                {{$content}}
+                @foreach ($content as $item)
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;1&lt;/th&gt;
+                    &lt;td&gt;{{$item-&gt;name}}&lt;/td&gt;
+                    &lt;td&gt;{{$item-&gt;price}}&lt;/td&gt;
+                    &lt;td&gt;&lt;input type="text" value="{{$item-&gt;quantity}}" class="product_qty"
+                            data-productid="{{$item-&gt;id}}"&gt;&lt;/td&gt;
+                    &lt;td&gt;{{$item-&gt;price * $item-&gt;quantity}}&lt;/td&gt;
+                    &lt;td&gt;&lt;button class="btn btn-danger btn-sm"&gt;X&lt;/button&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                @endforeach
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;h2&gt;總計:$ {{$total}}&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;button class="text-center btn btn-success"&gt;確定結帳&lt;/button&gt;
+&lt;/div&gt;
+@endsection
+
+@section('js')
+&lt;script&gt;
+    $('.product_qty').on('change', function() {
+        // console.log("onchangeValue:",this.value);
+        // console.log("onchangeProductID:",this.getAttribute("data-productid"));
+        var new_qty = this.value;
+        var product_id = this.getAttribute("data-productid");
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: 'POST',
+            url: '/changeProductQty',
+            data: {
+                product_id:product_id,
+                new_qty:new_qty
+            },
+            success: function (res) {
+                document.location.reload(true);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus + " " + errorThrown);
+            }
+        });
+    });
+&lt;/script&gt;
+@endsection
+
+</code></pre><h2 id="Order---訂單管理"><a class="anchor hidden-xs" href="#Order---訂單管理" title="Order---訂單管理"><span class="octicon octicon-link"></span></a>Order - 訂單管理</h2><h3 id="Migration"><a class="anchor hidden-xs" href="#Migration" title="Migration"><span class="octicon octicon-link"></span></a>Migration</h3><p>資料表<code>Order</code> 的Migration<br>
+主要紀錄訂單的編號、寄件人相關資訊、付費方式及寄送時間</p><pre><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateOrderTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('order', function (Blueprint $table) {
+            $table-&gt;bigIncrements('id');
+            $table-&gt;string('order_no');
+
+            $table-&gt;string('receive_name');
+            $table-&gt;string('receive_phone');
+            $table-&gt;string('receive_mobile');
+            $table-&gt;string('receive_address');
+            $table-&gt;string('receive_email');
+            $table-&gt;string('receipt');
+            $table-&gt;string('time_to_send');
+            $table-&gt;string('status')-&gt;default('新訂單');
+            $table-&gt;integer('total_price');
+            $table-&gt;string('remark','2000');
+
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('order');
+    }
+}
+
+
+</code></pre><p>資料表<code>OrderItems</code> 的Migration<br>
+主要紀錄訂單中的購買品項(product_id)及其數量(Qty)<br>
+與Order關聯，為一對多關係<br>
+一個訂單中會有多個產品，每個產品會買的數量都可能會不同</p><pre><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateOrderItemsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('order_items', function (Blueprint $table) {
+            $table-&gt;bigIncrements('id');
+            $table-&gt;unsignedBigInteger('order_id');
+            $table-&gt;foreign('order_id')-&gt;references('id')-&gt;on('order');
+
+            $table-&gt;unsignedBigInteger('product_id');
+            $table-&gt;foreign('product_id')-&gt;references('id')-&gt;on('products');
+            $table-&gt;integer('qty');
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('order_items');
+    }
+}
+
+</code></pre><h3 id="Controller3"><a class="anchor hidden-xs" href="#Controller3" title="Controller3"><span class="octicon octicon-link"></span></a>Controller</h3><p>負責將訂單資料及購買的產品細項存進資料庫，確定訂單建立成功後，才會跑第三方支付</p><p>–</p><p>先將request-&gt;all()取出，放至變數$request_data中<br>
+再添加order_no的部分進陣列中，最後再以ORM - Create的方式建立訂單</p><pre><code>public function send_check_out(Request $request)
+{
+    $request_data = $request-&gt;all();
+    $request_data["order_no"] = "201912061";
+    $request_data["total_price"] = \Cart::getTotal();
+
+    $new_order = Order::create($request_data);
+
+    $cat_contents = \Cart::getContent()-&gt;sort();
+
+    foreach ($cat_contents as $item) {
+        $OrderItem = new OrderItems();
+        $OrderItem-&gt;order_id = $new_order-&gt;id;
+        $OrderItem-&gt;product_id = $item-&gt;id;
+        $OrderItem-&gt;qty = $item-&gt;quantity;
+        $OrderItem-&gt;price = $item-&gt;price;
+        $OrderItem-&gt;save();
+    }
+}
+</code></pre><hr><h1 id="訂單建立金流串接"><a class="anchor hidden-xs" href="#訂單建立金流串接" title="訂單建立金流串接"><span class="octicon octicon-link"></span></a>訂單建立+金流串接</h1><ul>
+<li>綠界金流API串接文件(<a href="https://www.ecpay.com.tw/Content/files/ecpay_011.pdf" target="_blank" rel="noopener">https://www.ecpay.com.tw/Content/files/ecpay_011.pdf</a>)</li>
+<li>Laravel 串接綠界非官方套件<br>
+(<a href="https://github.com/tsaiyihua/laravel-ecpay" target="_blank" rel="noopener">https://github.com/tsaiyihua/laravel-ecpay</a>)</li>
+</ul><h2 id="Laravel-串接綠界套件安裝"><a class="anchor hidden-xs" href="#Laravel-串接綠界套件安裝" title="Laravel-串接綠界套件安裝"><span class="octicon octicon-link"></span></a>Laravel 串接綠界套件安裝</h2><p>Composer安裝套件</p><pre><code>composer require tsaiyihua/laravel-ecpay
+</code></pre><p>Config設定</p><pre><code>php artisan vendor:publish --tag=ecpay
+</code></pre><p>.env設定</p><pre><code>ECPAY_MERCHANT_ID=2000132
+ECPAY_HASH_KEY=5294y06JbISpM5x9
+ECPAY_HASH_IV=v77hoKGq4kWxNNIS
+</code></pre><hr><p><strong>web.php</strong></p><pre><code>Route::prefix('cart_ecpay')-&gt;group(function(){
+    
+    //當消費者付款完成後，綠界會將付款結果參數以幕後(Server POST)回傳到該網址。
+    Route::post('notify', 'CartController@notifyUrl')-&gt;name('notify');
+
+    //付款完成後，綠界會將付款結果參數以幕前(Client POST)回傳到該網址
+    Route::post('return', 'CartController@returnUrl')-&gt;name('return');
+});
+</code></pre><p><strong>middleware &gt; VerifyCsrfToken.php</strong></p><pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    /**
+     * Indicates whether the XSRF-TOKEN cookie should be set on the response.
+     *
+     * @var bool
+     */
+    protected $addHttpCookie = true;
+
+    /**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array
+     */
+    protected $except = [
+        'cart_ecpay/return','cart_ecpay/notify'
+    ];
+}
+
+</code></pre><p><strong>controller</strong></p><pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Order;
+use App\Product;
+use Carbon\Carbon;
+use App\OrderItems;
+use Darryldecode\Cart\Cart;
+use Illuminate\Http\Request;
+use TsaiYiHua\ECPay\Checkout;
+use TsaiYiHua\ECPay\Services\StringService;
+use TsaiYiHua\ECPay\Collections\CheckoutResponseCollection;
+
+class CartController extends Controller
+{   
+    public function __construct(Checkout $checkout,CheckoutResponseCollection $checkoutResponse)
+    {
+        $this-&gt;checkout = $checkout;
+        $this-&gt;checkoutResponse = $checkoutResponse;
+    }
+
+    public function addProductToCar(Request $request){
+        $product_id = $request-&gt;product_id;
+        $product = Product::find($product_id);
+        \Cart::add($product_id, $product-&gt;title, $product-&gt;price, 1, array());
+
+        $cartTotalQuantity = \Cart::getTotalQuantity();
+        return $cartTotalQuantity;
+    }
+
+   
+
+    public function cart()
+    {
+        $content = \Cart::getContent()-&gt;sort();
+        $total = \Cart::getTotal();
+
+        return view("front.cart",compact('content','total'));
+    }
+
+    public function changeProductQty(Request $request)
+    {
+        $product_id = $request-&gt;product_id;
+        $new_qty = $request-&gt;new_qty;
+
+        \Cart::update($product_id , array(
+            'quantity' =&gt; array(
+                'relative' =&gt; false,
+                'value' =&gt; $new_qty
+            ),
+          ));
+
+        return "suceess";
+    }
+
+
+    public function deleteProductInCart(Request $request)
+    {
+        $product_id = $request-&gt;product_id;
+        \Cart::remove($product_id);
+
+        return "suceess";
+    }
+
+    public function cart_check_out()
+    {
+        $content = \Cart::getContent()-&gt;sort();
+        $total = \Cart::getTotal();
+
+        return view("front.cart_check_out",compact('content','total'));
+    }
+
+    public function send_check_out(Request $request)
+    {
+        //建立訂單
+        $request_data = $request-&gt;all();
+        $request_data["order_no"] = Carbon::now()-&gt;format('Ymd');
+        $request_data["total_price"] = \Cart::getTotal();
+
+        $new_order = Order::create($request_data);
+        $new_order-&gt;order_no = 'hk'.Carbon::now()-&gt;format('Ymd').$new_order-&gt;id;
+        $new_order-&gt;save();
+
+        $cat_contents = \Cart::getContent()-&gt;sort();
+
+        $items=[];
+
+        foreach ($cat_contents as $item) {
+            $OrderItem = new OrderItems();
+            $OrderItem-&gt;order_id = $new_order-&gt;id;
+            $OrderItem-&gt;product_id = $item-&gt;id;
+            $OrderItem-&gt;qty = $item-&gt;quantity;
+            $OrderItem-&gt;price = $item-&gt;price;
+            $OrderItem-&gt;save();
+
+            $product = Product::find($item-&gt;id);
+            $product_name = $product-&gt;title;
+
+            $new_ary = [
+                'name' =&gt; $product_name,
+                'qty' =&gt; $item-&gt;quantity,
+                'price' =&gt; $item-&gt;price,
+                'unit' =&gt; '個'
+            ];
+
+            array_push($items, $new_ary);
+        }
+
+        //第三方支付
+        $formData = [
+            'UserId' =&gt; 1, // 用戶ID , Optional
+            'ItemDescription' =&gt; '產品簡介',
+            'Items' =&gt; $items,
+            'OrderId' =&gt; 'hk'.Carbon::now()-&gt;format('Ymd').$new_order-&gt;id,
+            // 'ItemName' =&gt; 'Product Name',
+            // 'TotalAmount' =&gt; \Cart::getTotal(),
+            'PaymentMethod' =&gt; 'Credit', // ALL, Credit, ATM, WebATM
+        ];
+
+        //清空購物車
+        \Cart::clear();
+        
+        return $this-&gt;checkout-&gt;setNotifyUrl(route('notify'))-&gt;setReturnUrl(route('return'))-&gt;setPostData($formData)-&gt;send();
+    }
+
+    public function notifyUrl(Request $request){
+        $serverPost = $request-&gt;post();
+        $checkMacValue = $request-&gt;post('CheckMacValue');
+        unset($serverPost['CheckMacValue']);
+        $checkCode = StringService::checkMacValueGenerator($serverPost);
+        if ($checkMacValue == $checkCode) {
+            return '1|OK';
+        } else {
+            return '0|FAIL';
+        }
+    }
+
+    public function returnUrl(Request $request){
+        $serverPost = $request-&gt;post();
+        $checkMacValue = $request-&gt;post('CheckMacValue');
+        unset($serverPost['CheckMacValue']);
+        $checkCode = StringService::checkMacValueGenerator($serverPost);
+        if ($checkMacValue == $checkCode) {
+            if (!empty($request-&gt;input('redirect'))) {
+                return redirect($request-&gt;input('redirect'));
+            } else {
+
+                //付款完成，下面接下來要將購物車訂單狀態改為已付款
+                //目前是顯示所有資料將其DD出來
+                dd($this-&gt;checkoutResponse-&gt;collectResponse($serverPost));
+            }
+        }
+    }
+}
+
+
+</code></pre><hr><h1 id="權限管理"><a class="anchor hidden-xs" href="#權限管理" title="權限管理"><span class="octicon octicon-link"></span></a>權限管理</h1><p>Step1.新增role欄位</p><p>於User Table新增一個新的欄位<code>role</code>之後用於管理身分<br>
+分為<code>user</code>、<code>admin</code>、<code>super_admin</code>三個身分</p><p>可於CreateUser的migration中直接新增以下程式，新增欄位role並將預設值為user</p><pre><code>$table-&gt;string('role')-&gt;default('user');
+</code></pre><p>Step2.新增Middleware</p><p>Step2.1 新增IsAdmin與IsSuperAdmin 兩個MiddleWare</p><pre><code>php artisan make:middleware IsAdmin
+php artisan make:middleware IsSuperAdmin
+</code></pre><p>Step2.2 設定app/Http/Kernel.php<br>
+在<code>$routeMiddleware</code>陣列中，新增</p><pre><code>'admin' =&gt; \App\Http\Middleware\IsAdmin::class,
+'super_admin' =&gt; \App\Http\Middleware\IsSuperAdmin::class,
+</code></pre><p>修改後的陣列如下</p><pre><code>protected $routeMiddleware = [
+    'auth' =&gt; \App\Http\Middleware\Authenticate::class,
+    'auth.basic' =&gt; \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'bindings' =&gt; \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    'cache.headers' =&gt; \Illuminate\Http\Middleware\SetCacheHeaders::class,
+    'can' =&gt; \Illuminate\Auth\Middleware\Authorize::class,
+    'guest' =&gt; \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'password.confirm' =&gt; \Illuminate\Auth\Middleware\RequirePassword::class,
+    'signed' =&gt; \Illuminate\Routing\Middleware\ValidateSignature::class,
+    'throttle' =&gt; \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    'verified' =&gt; \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+    'admin' =&gt; \App\Http\Middleware\IsAdmin::class,
+    'super_admin' =&gt; \App\Http\Middleware\IsSuperAdmin::class,
+];
+</code></pre><p>Step2.3 修改IsAdmin與IsSuperAdmin MiddleWare檔案</p><p>IsAdmin MiddleWare</p><pre><code>public function handle($request, Closure $next)
+{
+    if (Auth::user()-&gt;role == "admin" || Auth::user()-&gt;role == "super_admin") {
+        return $next($request);
+    }
+
+    return abort(403, 'Unauthorized action.');
+}
+</code></pre><p>IsSuperAdmin MiddleWare</p><pre><code>public function handle($request, Closure $next)
+{
+    if (Auth::user()-&gt;role == "super_admin") {
+        return $next($request);
+    }
+
+    return abort(403, 'Unauthorized action.');
+}
+</code></pre><p>Step2.3 調整web中 在admin群組中的middlewire</p><p>原本的，只要有登入就可以進入到以下頁面</p><pre><code>Route::group(['prefix' =&gt; 'admin', 'middleware' =&gt; ['auth']], function(){
+    ...
+});
+</code></pre><p>–<br>
+要修改為 除了登入之外，還是要role為admin或者是super_admin身分才可以</p><pre><code>//admin
+Route::group(['prefix' =&gt; 'admin', 'middleware' =&gt; ['auth','admin']], function(){
+    ...
+});
+
+//super_admin
+Route::group(['prefix' =&gt; 'admin', 'middleware' =&gt; ['auth','super_admin']], function(){
+    ...
+});
+</code></pre><p>Step3. 新增有權限的帳號<br>
+主要是要在後台新增一個帳號管理之頁面<br>
+於帳號管理的頁面中顯示所有目前的帳號、刪除帳號、新增帳號</p><p>新增帳號要可以選擇權限為<code>admin</code>、<code>super_admin</code></p><p>Route</p><pre><code>Route::group(['prefix' =&gt; 'admin', 'middleware' =&gt; ['auth','super_admin']], function(){
+    //帳號管理
+    Route::get('account', 'AccountController@index');
+    Route::get('account/create', 'AccountController@create');
+    Route::post('account/store', 'AccountController@store');
+    Route::post('account/destroy/{id}', 'AccountController@destroy');
+    
+    ...
+});
+</code></pre><p>Controller</p><pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+
+class AccountController extends Controller
+{
+    public function index()
+    {
+        $items = User::all();
+        return view('admin.account.index',compact('items'));
+    }
+
+    public function create()
+    {
+        return view('admin.account.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this-&gt;validator($request-&gt;all())-&gt;validate();
+        $this-&gt;create_account($request-&gt;all());
+
+        return redirect('/admin/account');
+    }
+
+    public function destroy(Request $request,$id)
+    {
+
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' =&gt; ['required', 'string', 'max:255'],
+            'email' =&gt; ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' =&gt; ['required', 'string', 'min:8', 'confirmed'],
+            'role' =&gt; ['required', 'string'],
+        ]);
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create_account(array $data)
+    {
+        return User::create([
+            'name' =&gt; $data['name'],
+            'email' =&gt; $data['email'],
+            'role' =&gt; $data['role'],
+            'password' =&gt; Hash::make($data['password']),
+        ]);
+    }
+}
+
+</code></pre><p>View - Index</p><pre><code>@extends('layouts.app')
+
+@section('css')
+@endsection
+
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;帳號管理 - Index&lt;/div&gt;
+
+                &lt;div class="card-body"&gt;
+                    &lt;a class="btn btn-success" href="/admin/account/create"&gt;新增帳號&lt;/a&gt;
+                    &lt;hr&gt;
+
+                    &lt;table id="example" class="table table-striped table-bordered" style="width:100%"&gt;
+                        &lt;thead&gt;
+                            &lt;tr&gt;
+                                &lt;th&gt;使用者名稱(name)&lt;/th&gt;
+                                &lt;th&gt;Email&lt;/th&gt;
+                                &lt;th&gt;權限(role)&lt;/th&gt;
+                                &lt;th width="120"&gt;功能&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+                            @foreach ($items as $item)
+                            &lt;tr&gt;
+                                &lt;td&gt;{{ $item-&gt;name}}&lt;/td&gt;
+                                &lt;td&gt;{{ $item-&gt;email}}&lt;/td&gt;
+                                &lt;td&gt;{{ $item-&gt;role}}&lt;/td&gt;
+                                &lt;td&gt;
+                                    &lt;a class="btn btn-danger btn-sm" href="#" data-itemid="{{$item-&gt;id}}"&gt;刪除&lt;/a&gt;
+
+                                    &lt;form class="destroy-form" data-itemid="{{$item-&gt;id}}"
+                                        action="/admin/news/destroy/{{$item-&gt;id}}" method="POST" style="display: none;"&gt;
+                                        @csrf
+                                    &lt;/form&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            @endforeach
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+
+
+@section('js')
+&lt;script&gt;
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "order": [1,"desc"]
+        });
+
+        $('#example').on('click','.btn-danger',function(){
+            event.preventDefault();
+            var r = confirm("你確定要刪除此項目嗎?");
+            if (r == true) {
+                var itemid = $(this).data("itemid");
+                $(`.destroy-form[data-itemid="${itemid}"]`).submit();
+            }
+        });
+    });
+&lt;/script&gt;
+@endsection
+
+</code></pre><p>View - Create</p><pre><code>@extends('layouts.app')
+
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-8"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;Create Account&lt;/div&gt;
+
+                &lt;div class="card-body"&gt;
+                    &lt;form method="POST" action="/admin/account/store"&gt;
+                        @csrf
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="name" class="col-md-4 col-form-label text-md-right"&gt;{{ __('Name') }}&lt;/label&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus&gt;
+
+                                @error('name')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="email" class="col-md-4 col-form-label text-md-right"&gt;{{ __('E-Mail Address') }}&lt;/label&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"&gt;
+
+                                @error('email')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="role" class="col-md-4 col-form-label text-md-right"&gt;Role&lt;/label&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;select class="form-control" name="role" id="role"&gt;
+                                    &lt;option value="admin"&gt;Admin&lt;/option&gt;
+                                    &lt;option value="super_admin"&gt;SuperAdmin&lt;/option&gt;
+                                &lt;/select&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="password" class="col-md-4 col-form-label text-md-right"&gt;{{ __('Password') }}&lt;/label&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"&gt;
+
+                                @error('password')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="password-confirm" class="col-md-4 col-form-label text-md-right"&gt;{{ __('Confirm Password') }}&lt;/label&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="form-group row mb-0"&gt;
+                            &lt;div class="col-md-6 offset-md-4"&gt;
+                                &lt;button type="submit" class="btn btn-primary"&gt;
+                                    {{ __('Register') }}
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+
+</code></pre></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#Laravel-共筆" title="Laravel 共筆">Laravel 共筆</a></li>
+<li class=""><a href="#時間管理-php套件---carbon" title="時間管理 php套件 - carbon">時間管理 php套件 - carbon</a></li>
+<li class=""><a href="#Route" title="Route">Route</a></li>
+<li class=""><a href="#Middleware-中介層" title="Middleware (中介層)">Middleware (中介層)</a><ul class="nav">
+<li class=""><a href="#使用方式" title="使用方式">使用方式</a></li>
+</ul>
+</li>
+<li class=""><a href="#建立後臺步驟" title="建立後臺步驟">建立後臺步驟</a><ul class="nav">
+<li class=""><a href="#準備步驟" title="準備步驟">準備步驟</a></li>
+<li><a href="#Index" title="Index">Index</a><ul class="nav">
+<li><a href="#DataTable使用注意事項" title="DataTable使用注意事項">DataTable使用注意事項</a></li>
+</ul>
+</li>
+<li><a href="#Create" title="Create">Create</a></li>
+</ul>
+</li>
+<li><a href="#ORM---使用Model連結至資料庫" title="ORM - 使用Model連結至資料庫">ORM - 使用Model連結至資料庫</a><ul class="nav">
+<li><a href="#在Controller中使用ORM" title="在Controller中使用ORM">在Controller中使用ORM</a></li>
+</ul>
+</li>
+<li><a href="#檔案上傳" title="檔案上傳">檔案上傳</a><ul class="nav">
+<li><a href="#Laravel---filesystem方法" title="Laravel - filesystem方法">Laravel - filesystem方法</a></li>
+<li><a href="#暴力直接move檔案到public中" title="暴力直接move檔案到/public中">暴力直接move檔案到/public中</a></li>
+</ul>
+</li>
+<li><a href="#Auth-in-webphp" title="Auth in web.php">Auth in web.php</a></li>
+<li><a href="#ORM---Relationships" title="ORM - Relationships">ORM - Relationships</a><ul class="nav">
+<li><a href="#Model" title="Model">Model</a></li>
+<li><a href="#Controller" title="Controller">Controller</a></li>
+</ul>
+</li>
+<li><a href="#多張圖片上傳" title="多張圖片上傳">多張圖片上傳</a><ul class="nav">
+<li><a href="#KeyWords" title="KeyWords">KeyWords</a></li>
+<li><a href="#完整的Controller" title="完整的Controller">完整的Controller</a></li>
+<li><a href="#Edit-Page" title="Edit Page">Edit Page</a></li>
+<li><a href="#web-ajax-Route-and-controller" title="web ajax Route and controller">web ajax Route and controller</a></li>
+</ul>
+</li>
+<li><a href="#各個類別限定三個產品的作法" title="各個類別限定三個產品的作法">各個類別限定三個產品的作法</a></li>
+<li><a href="#多張圖片排序---使用Muuri未完成-or-手動輸入排序數字" title="多張圖片排序 - 使用Muuri(未完成) or 手動輸入排序數字">多張圖片排序 - 使用Muuri(未完成) or 手動輸入排序數字</a></li>
+<li><a href="#自動產生Model" title="自動產生Model">自動產生Model</a></li>
+<li><a href="#購物車" title="購物車">購物車</a><ul class="nav">
+<li><a href="#加入購物車" title="加入購物車">加入購物車</a><ul class="nav">
+<li><a href="#WEB" title="WEB">WEB</a></li>
+<li><a href="#Controller1" title="Controller">Controller</a></li>
+<li><a href="#Product" title="Product">Product</a></li>
+<li><a href="#front-layout" title="front layout">front layout</a></li>
+</ul>
+</li>
+<li><a href="#結帳頁--修改購物車上的產品數量" title="結帳頁 + 修改購物車上的產品數量">結帳頁 + 修改購物車上的產品數量</a><ul class="nav">
+<li><a href="#Web" title="Web">Web</a></li>
+<li><a href="#Controller2" title="Controller">Controller</a></li>
+<li><a href="#View" title="View">View</a></li>
+</ul>
+</li>
+<li><a href="#Order---訂單管理" title="Order - 訂單管理">Order - 訂單管理</a><ul class="nav">
+<li><a href="#Migration" title="Migration">Migration</a></li>
+<li><a href="#Controller3" title="Controller">Controller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#訂單建立金流串接" title="訂單建立+金流串接">訂單建立+金流串接</a><ul class="nav">
+<li><a href="#Laravel-串接綠界套件安裝" title="Laravel 串接綠界套件安裝">Laravel 串接綠界套件安裝</a></li>
+</ul>
+</li>
+<li><a href="#權限管理" title="權限管理">權限管理</a></li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#Laravel-共筆" title="Laravel 共筆">Laravel 共筆</a></li>
+<li class=""><a href="#時間管理-php套件---carbon" title="時間管理 php套件 - carbon">時間管理 php套件 - carbon</a></li>
+<li class=""><a href="#Route" title="Route">Route</a></li>
+<li class=""><a href="#Middleware-中介層" title="Middleware (中介層)">Middleware (中介層)</a><ul class="nav">
+<li class=""><a href="#使用方式" title="使用方式">使用方式</a></li>
+</ul>
+</li>
+<li class=""><a href="#建立後臺步驟" title="建立後臺步驟">建立後臺步驟</a><ul class="nav">
+<li class=""><a href="#準備步驟" title="準備步驟">準備步驟</a></li>
+<li><a href="#Index" title="Index">Index</a><ul class="nav">
+<li><a href="#DataTable使用注意事項" title="DataTable使用注意事項">DataTable使用注意事項</a></li>
+</ul>
+</li>
+<li><a href="#Create" title="Create">Create</a></li>
+</ul>
+</li>
+<li><a href="#ORM---使用Model連結至資料庫" title="ORM - 使用Model連結至資料庫">ORM - 使用Model連結至資料庫</a><ul class="nav">
+<li><a href="#在Controller中使用ORM" title="在Controller中使用ORM">在Controller中使用ORM</a></li>
+</ul>
+</li>
+<li><a href="#檔案上傳" title="檔案上傳">檔案上傳</a><ul class="nav">
+<li><a href="#Laravel---filesystem方法" title="Laravel - filesystem方法">Laravel - filesystem方法</a></li>
+<li><a href="#暴力直接move檔案到public中" title="暴力直接move檔案到/public中">暴力直接move檔案到/public中</a></li>
+</ul>
+</li>
+<li><a href="#Auth-in-webphp" title="Auth in web.php">Auth in web.php</a></li>
+<li><a href="#ORM---Relationships" title="ORM - Relationships">ORM - Relationships</a><ul class="nav">
+<li><a href="#Model" title="Model">Model</a></li>
+<li><a href="#Controller" title="Controller">Controller</a></li>
+</ul>
+</li>
+<li><a href="#多張圖片上傳" title="多張圖片上傳">多張圖片上傳</a><ul class="nav">
+<li><a href="#KeyWords" title="KeyWords">KeyWords</a></li>
+<li><a href="#完整的Controller" title="完整的Controller">完整的Controller</a></li>
+<li><a href="#Edit-Page" title="Edit Page">Edit Page</a></li>
+<li><a href="#web-ajax-Route-and-controller" title="web ajax Route and controller">web ajax Route and controller</a></li>
+</ul>
+</li>
+<li><a href="#各個類別限定三個產品的作法" title="各個類別限定三個產品的作法">各個類別限定三個產品的作法</a></li>
+<li><a href="#多張圖片排序---使用Muuri未完成-or-手動輸入排序數字" title="多張圖片排序 - 使用Muuri(未完成) or 手動輸入排序數字">多張圖片排序 - 使用Muuri(未完成) or 手動輸入排序數字</a></li>
+<li><a href="#自動產生Model" title="自動產生Model">自動產生Model</a></li>
+<li><a href="#購物車" title="購物車">購物車</a><ul class="nav">
+<li><a href="#加入購物車" title="加入購物車">加入購物車</a><ul class="nav">
+<li><a href="#WEB" title="WEB">WEB</a></li>
+<li><a href="#Controller1" title="Controller">Controller</a></li>
+<li><a href="#Product" title="Product">Product</a></li>
+<li><a href="#front-layout" title="front layout">front layout</a></li>
+</ul>
+</li>
+<li><a href="#結帳頁--修改購物車上的產品數量" title="結帳頁 + 修改購物車上的產品數量">結帳頁 + 修改購物車上的產品數量</a><ul class="nav">
+<li><a href="#Web" title="Web">Web</a></li>
+<li><a href="#Controller2" title="Controller">Controller</a></li>
+<li><a href="#View" title="View">View</a></li>
+</ul>
+</li>
+<li><a href="#Order---訂單管理" title="Order - 訂單管理">Order - 訂單管理</a><ul class="nav">
+<li><a href="#Migration" title="Migration">Migration</a></li>
+<li><a href="#Controller3" title="Controller">Controller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#訂單建立金流串接" title="訂單建立+金流串接">訂單建立+金流串接</a><ul class="nav">
+<li><a href="#Laravel-串接綠界套件安裝" title="Laravel 串接綠界套件安裝">Laravel 串接綠界套件安裝</a></li>
+</ul>
+</li>
+<li><a href="#權限管理" title="權限管理">權限管理</a></li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

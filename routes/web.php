@@ -11,13 +11,12 @@
 |
  */
 
-Route::get('/', 'FrontController@index');
-// 最新消息
-Route::get('/news', 'FrontController@news');
-// 最新消息detail
-Route::get('/news/{id}', 'FrontController@news_detail');
+Route::get('/', 'FrontController@index');//首頁
 
-Route::get('/login', 'LoginController@login');
+Route::get('/news', 'FrontController@news');// 最新消息
+Route::get('/news/{id}', 'FrontController@news_detail');// 最新消息detail
+
+Route::get('/login', 'LoginController@login');//登入頁
 
 Route::get('test/{id}', 'FrontController@test');
 
@@ -31,14 +30,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/home'], function () {
     Route::get('/news', 'NewsController@index');//首頁
 
 
-    Route::post('/news/store', 'NewsController@store');//新增
-    Route::get('/news/create', 'NewsController@create');//修改讀取
+    Route::post('/news/store', 'NewsController@store');//儲存
+    Route::get('/news/create', 'NewsController@create');//新增
 
-    Route::get('/news/edit/{id}', 'NewsController@edit');//修改編輯
-    Route::post('/news/update/{id}', 'NewsController@update');//新增
+    Route::get('/news/edit/{id}', 'NewsController@edit');//編輯
+    Route::post('/news/update/{id}', 'NewsController@update');//更新
+    Route::post('/news/delete/{id}', 'NewsController@delete');//刪除暴力方式
 
-    //刪除暴力方式
-    Route::get('/news/delete/{id}', 'NewsController@delete');
 
-    //Route::post('/news/delete/{id}', 'NewsController@delete');
 });

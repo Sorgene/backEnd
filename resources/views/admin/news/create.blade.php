@@ -7,21 +7,21 @@
     @csrf
 
     <div class="form-group">
-      <label for="img">IMG</label>
-      <input type="file" class="form-control" id="img" name="img">
+      <label for="img">主要圖片上傳</label>
+      <input type="file" class="form-control" id="img" name="img" required >
+    </div>
+    <div class="form-group">
+        <label for="img">多張圖片上傳</label>
+        <input type="file" class="form-control" id="img" name="img" required multiple>
+      </div>
+    <div class="form-group">
+      <label for="title">標題</label>
+      <input type="text" class="form-control" id="title" name="title"　required>
+    </div>
 
-    </div>
     <div class="form-group">
-      <label for="title">TITLE</label>
-      <input type="text" class="form-control" id="title" name="title">
-    </div>
-    <div class="form-group">
-        <label for="sort">SORT</label>
-        <input type="nnumber" class="form-control" id="sort" name="sort" >
-    </div>
-    <div class="form-group">
-        <label for="content">CONTENT</label>
-        <input type="text" class="form-control" id="content" name='content'>
+        <label for="content">內容</label>
+        <input type="text" class="form-control" id="content" name='content'　required>
       </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

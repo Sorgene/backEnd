@@ -1,4 +1,4 @@
-¦w¸Ë®M¥ó
+ï»¿å®‰è£å¥—ä»¶
 https://github.com/krlove/eloquent-model-generator
 composer require krlove/eloquent-model-generator --dev
 

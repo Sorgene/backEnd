@@ -1,0 +1,5 @@
+﻿
+php artisan make:migration create_news 創建create_news資料
+
+php artisan migrate 執行遷移
+php artisan migrate:fresh 移除資料庫的所有資料表，然後執行 migrate 指令

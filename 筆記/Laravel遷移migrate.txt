@@ -1,18 +1,18 @@
+ï»¿
+php artisan make:migration create_news //å‰µå»ºcreate_newsè³‡æ–™
+//é·ç§»æª”æœƒå»ºç«‹åœ¨ app/database/migrations ç›®éŒ„ä¸‹
 
-php artisan make:migration create_news //³Ğ«Øcreate_news¸ê®Æ
-//¾E²¾ÀÉ·|«Ø¥ß¦b app/database/migrations ¥Ø¿ı¤U
+php artisan migrate //åŸ·è¡Œé·ç§»ï¼ŒæŠŠæ‰€æœ‰æœªå®Œæˆé·ç§»çš„è³‡æ–™éƒ½é·ç§»åˆ°æŒ‡å®šDB
+php artisan migrate:fresh //ç§»é™¤è³‡æ–™åº«çš„æ‰€æœ‰è³‡æ–™è¡¨ï¼Œç„¶å¾ŒåŸ·è¡Œ migrate æŒ‡ä»¤
 
-php artisan migrate //°õ¦æ¾E²¾¡A§â©Ò¦³¥¼§¹¦¨¾E²¾ªº¸ê®Æ³£¾E²¾¨ì«ü©wDB
-php artisan migrate:fresh //²¾°£¸ê®Æ®wªº©Ò¦³¸ê®Æªí¡AµM«á°õ¦æ migrate «ü¥O
-
-//ª¬ºA¤@¡G±À¦^¤W¤@¦¸ªº¾E²¾
+//ç‹€æ…‹ä¸€ï¼šæ¨å›ä¸Šä¸€æ¬¡çš„é·ç§»
 php artisan migrate:rollback
 
-//ª¬ºA¤G¡G±À¦^©Ò¦³¾E²¾
+//ç‹€æ…‹äºŒï¼šæ¨å›æ‰€æœ‰é·ç§»
 php artisan migrate:reset
 
-//ª¬ºA¤T¡G±À¦^©Ò¦³¾E²¾¨Ã¥B¦A°õ¦æ¤@¦¸
+//ç‹€æ…‹ä¸‰ï¼šæ¨å›æ‰€æœ‰é·ç§»ä¸¦ä¸”å†åŸ·è¡Œä¸€æ¬¡
 php artisan migrate:refresh
 
-//©ÎªÌ¥[¤W--seed
+//æˆ–è€…åŠ ä¸Š--seed
 php artisan migrate:refresh --seed

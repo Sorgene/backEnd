@@ -12,8 +12,8 @@ class News extends Model
         'img', 'title','sort','content',
     ];
 
-    // public function news_images()
-    // {
-    //     return $this->hasMany('App\NewsImgs');
-    // }
+    public function news_images()
+    {
+        return $this->hasMany('App\NewsImgs');
+    }
 }
