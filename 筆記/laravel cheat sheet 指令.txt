@@ -1,0 +1,54 @@
+﻿
+laravel cheat sheet
+
+https://learnku.com/docs/laravel-cheatsheet/6.0
+
+常用指令
+
+composer install
+
+composer update
+
+
+// 启动内置服务器
+php artisan serve
+
+// 生成应用的 key（会覆盖）
+php artisan key:generate
+
+ // --plain      生成一个空白的控制器类
+php artisan make:controller [--plain] name
+
+// 数据库迁移
+// Drop 所有数据表并重新运行 Migration
+php artisan migrate:fresh
+
+// 取得 public 目录的完整路径
+public_path();
+// 取得 storage 目录的完整路径
+storage_path();
+
+查询语句构造器 
+// 取得数据表的所有行
+DB::table('name')->get();
+
+// for 循环
+@for ($i = 0; $i < 10; $i++)
+@endfor
+// foreach 迭代
+@foreach ($users as $user)
+@endforeach
+
+包含和继承
+// 扩展布局模板
+@extends('layout.name')
+// 区块占位
+@yield('name')
+// 第一种、直接填入扩展内容
+@section('title',  'Page Title')
+// 第二种、实现命名为 name 的区块（yield 占位的地方）
+@section('sidebar')
+    // 继承父模板内容
+    @parent
+@endsection
+// 可继承内容区块

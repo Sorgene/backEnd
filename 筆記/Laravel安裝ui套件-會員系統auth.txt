@@ -1,0 +1,79 @@
+﻿環境建置
+
+Step1 -安裝XAMPP
+打開你的xampp控制台，並且啟動MySQL
+
+Step2 -Composer安裝上
+先到 https://getcomposer.org/download/ 這裡下載 Composer-Setup.exe
+
+建立Laravel專案，安裝 Laravel
+Laravel 使用 Composer 來管理相依性。所以，在使用 Laravel 之前，你必須確認電腦上是否安裝了 Composer。
+
+方式一：透過 Laravel Installer
+首先，使用 Composer 下載 Laravel installer：
+
+composer global require "laravel/installer"
+
+方式二：透過 Composer Create-Project
+你也可以透過 Composer 在命令列執行 create-project 指令來安裝 Laravel：
+composer create-project --prefer-dist laravel/laravel blog
+目錄架構-https://ithelp.ithome.com.tw/articles/10202956
+
+套件安裝
+composer install(需要安裝02-Composer-Setup)
+npm install
+
+.env建立
+更改DB_DATABASE=TEST
+
+php artisan serve後，瀏覽器開啟 http://localhost:8000/ 會看到 Laravel預設的畫面！
+
+應用程式金鑰
+php artisan key:generate
+在你安裝完 Laravel 後，首先需要做的事情是設定一個隨機字串到應用程式金鑰。假設你是透過 Composer 或是 Laravel 安裝工具安裝 Laravel，那麼這個金鑰已經透過 php artisan key:generate 指令幫你設定完成。
+
+laravel auth (會員系統)
+composer require laravel/ui(laravel 6 將 auth 獨立出來, 要手動載入 ui套件)
+php artisan ui vue --auth (加入身份驗證功能)
+npm install
+npn run dev
+
+php artisan make:cotroller NewsController 採大駝峰命名
+php artisan make:cotroller FrontController
+
+打開routes/web.php
+Route::get('/', 'FrontController@index');
+Route::get('/news', 'FrontController@news');
+Route::get('/login', 'LoginController@login');
+
+打開Controller/Auth/FrontController.php
+namespace App\Http\Controllers;
+use DB;                            (偷吃步，加入使用資料庫，缺點易被駭)
+use Illuminate\Http\Request;
+class FrontController extends Controller
+{
+    public function index()
+    {
+        return view('front/index');
+    }
+    public function news()
+    {
+        $news_data = DB::table('news')->get();
+        return view('front/news', compact('news_data'));
+    }
+}
+
+
+php artisan make:migration create_news 創建create_news資料
+
+php artisan migrate 執行遷移
+php artisan migrate:fresh 移除資料庫的所有資料表，然後執行 migrate 指令
+
+
+
+
+
+
+
+
+
