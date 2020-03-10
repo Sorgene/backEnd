@@ -16,6 +16,9 @@ Route::get('/', 'FrontController@index');//首頁
 Route::get('/news', 'FrontController@news');// 最新消息
 Route::get('/news/{id}', 'FrontController@news_detail');// 最新消息detail
 
+Route::get('/products', 'FrontController@products');// 最新消息
+
+
 Route::get('/login', 'LoginController@login');//登入頁
 
 Route::get('test/{id}', 'FrontController@test');

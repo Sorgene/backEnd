@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{asset('/assets/gallery/style.css')}}">
     <link rel="preload" as="style" href="{{asset('/assets/mobirise/css/mbr-additional.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/mobirise/css/mbr-additional.css')}}" type="text/css">
-
+@yield('css')
 
 
 </head>
@@ -64,9 +64,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="/news">
+                        <a class="nav-link link text-white display-4" href="/products">
                             <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                            產品
+                            產品Products
                         </a>
                     </li>
                 </ul>
@@ -83,6 +83,7 @@
 </section>
 @yield('index')
 @yield('news')
+@yield('products')
 
 
 <section class="cid-qTkAaeaxX5" id="footer1-2">
@@ -193,7 +194,7 @@
     <script src="/assets/gallery/player.min.js"></script>
     <script src="/assets/gallery/script.js"></script>
     <script src="/assets/slidervideo/script.js"></script>
-
+@yield('js')
 
 </body>
 

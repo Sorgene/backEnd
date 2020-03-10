@@ -25,4 +25,10 @@ class FrontController extends Controller
         $news = News::find($id);
         return view('front/news_detail', compact('news'));
     }
+
+    public function products()
+    {
+        return view('front/products');
+    }
+
 }
