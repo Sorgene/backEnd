@@ -1,0 +1,17 @@
+products & product_types
+
+1. web路徑製作
+
+2. 前端頁面串接
+
+3. 後端頁面製作
+
+4. migration製作
+
+5. controller製作
+
+6. model製作
+
+7. model ORM連結 <- 非必要
+
+8. 測試 :)

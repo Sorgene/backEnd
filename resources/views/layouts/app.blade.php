@@ -19,6 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
+
     @yield('css')
 </head>
 
@@ -27,10 +29,25 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'larave') }}首頁
                 </a>
                 <a class="navbar-brand" href="{{ url('/home/news') }}">
-                    NEWS
+                    News消息管理
+                </a>
+                <div class="dropdown">
+                    <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Product產品管理
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/home/productTypes">ProductTypes產品分類管理</a>
+                        <a class="dropdown-item" href="/home/products">Products產品管理</a>
+
+                    </div>
+                </div>
+
+                <a class="navbar-brand" href="{{ url('/home/news') }}">
+                    test
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -43,6 +60,7 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
