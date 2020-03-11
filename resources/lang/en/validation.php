@@ -147,5 +147,5 @@ return [
     */
 
     'attributes' => [],
-
+    'recaptcha' => '驗證請打勾V',
 ];

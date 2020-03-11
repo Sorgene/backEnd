@@ -11,8 +11,8 @@ class News extends Model
     protected $fillable = [
         'img', 'title','sort','content',
     ];
-
-    public function news_images()
+// order by one to more
+    public function news_imgs()
     {
         return $this->hasMany('App\NewsImgs');
     }

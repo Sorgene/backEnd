@@ -29,6 +29,7 @@ class NewsController extends Controller
     {
         $news_data = $request->all();
         $NewsImgs = new NewsImgs;
+
         //上傳檔案
         // $file_name = $request->file('img')->store('', 'public');
         // $news_data['img'] = $file_name;
@@ -36,7 +37,7 @@ class NewsController extends Controller
         // 暴力上傳 一張
         if ($request->hasFile('img')) {
             $file = $request->file('img');
-            $path = $this->fileUpload($file, 'product');
+            $path = $this->fileUpload($file, 'News');
             $news_data['img'] = $path;
         }
         $news_id = News::create($news_data);
@@ -44,20 +45,13 @@ class NewsController extends Controller
         // 多張
         // 從request中撈出 多筆照片的資料
         // 多張照片 要存的欄位 new_id img_url 拿一張存一張
-        foreach($request->all()['new_imgs'] as $item){
-
-                $file = $item;
-                $path = $this->fileUpload($file, 'product');
-                $NewsImgs->new_id = $news_id['id'];
-                $NewsImgs->img_url = $path;
-                $NewsImgs->save();
-
-
+        foreach ($request->all()['new_imgs'] as $item) {
+            $file = $item;
+            $path = $this->fileUpload($file, 'News');
+            $NewsImgs->new_id = $news_id['id'];
+            $NewsImgs->img_url = $path;
+            $NewsImgs->save();
         }
-
-
-
-
 
         return redirect('/home/news');
     }
@@ -65,7 +59,7 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-        $news = News::find($id);
+        $news = News::with('news_imgs')->find($id);
         return view('admin/news/edit', compact('news'));
     }
 
@@ -87,9 +81,9 @@ class NewsController extends Controller
             File::delete(public_path() . $old_img);
 
             //上傳新圖片
-            $file = $request->file("img");//$file 抓新的網頁的img網址
-            $path = $this->fileUpload($file, 'product');//$path 轉換成可存取路徑，位置public/upload/product
-            $request_data["img"] = $path;//$request_data["img"]替代成可存取路徑$path
+            $file = $request->file("img"); //$file 抓新的網頁的img網址
+            $path = $this->fileUpload($file, 'product'); //$path 轉換成可存取路徑，位置public/upload/product
+            $request_data["img"] = $path; //$request_data["img"]替代成可存取路徑$path
             $item->update($request_data);
         }
 
@@ -116,14 +110,14 @@ class NewsController extends Controller
         //     $path = $this->fileUpload($file, 'news');
         //     $request_data['img'] = $path;
         // }
-    // News::find($id)->update($request->all());
-            // $item->img = $request_data['img'];
-            // $item->title = $request_data['title'];
-            // $item->sort = $request_data['sort'];
-            // $item->content = $request_data['content'];
-            // $item->save();
-            return redirect('home/news');
-        }
+        // News::find($id)->update($request->all());
+        // $item->img = $request_data['img'];
+        // $item->title = $request_data['title'];
+        // $item->sort = $request_data['sort'];
+        // $item->content = $request_data['content'];
+        // $item->save();
+        return redirect('home/news');
+    }
 
 
     public function delete(Request $request, $id)

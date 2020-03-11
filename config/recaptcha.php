@@ -52,7 +52,7 @@ return [
      * IP addresses for which validation will be skipped
      *
      */
-    'skip_ip'                      => ['127.0.0.1'],
+    'skip_ip'                      => [],
 
     /**
      *
@@ -78,7 +78,7 @@ return [
      * @since v3.6.0
      *
      */
-    'default_language'             => 'zh-tw',
+    'default_language'             => null,
 
     /**
      *

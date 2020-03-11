@@ -1,0 +1,92 @@
+1.Installation
+composer require biscolab/laravel-recaptcha
+
+2.Configuration
+
+(1)php artisan vendor:publish --provider="Biscolab\ReCaptcha\ReCaptchaServiceProvider"
+
+(2)Open .env file
+# in your .env file
+RECAPTCHA_SITE_KEY=YOUR_API_SITE_KEY
+RECAPTCHA_SECRET_KEY=YOUR_API_SECRET_KEY
+
+(3)Complete configuration
+Open config/recaptcha.php configuration file and set version:
+return [
+    'api_site_key'                  => env('RECAPTCHA_SITE_KEY', ''),
+    'api_secret_key'                => env('RECAPTCHA_SECRET_KEY', ''),
+    // changed in v4.0.0
+    'version'                       => 'v2', // supported: "v3"|"v2"|"invisible"
+    // @since v3.4.3 changed in v4.0.0
+    'curl_timeout'                  => 10,
+    'skip_ip'                       => [], // array of IP addresses - String: dotted quad format e.g.: "127.0.0.1"
+    // @since v3.2.0 changed in v4.0.0
+    'default_validation_route'      => 'biscolab-recaptcha/validate',
+    // @since v3.2.0 changed in v4.0.0
+    'default_token_parameter_name' => 'token',
+    // @since v3.6.0 changed in v4.0.0 
+    'default_language'             => null,
+    // @since v4.0.0
+    'default_form_id'              => 'biscolab-recaptcha-invisible-form', // Only for "invisible" reCAPTCHA
+    // @since v4.0.0
+    'explicit'                     => false, // true|false
+    // @since v4.0.0
+    'tag_attributes'               => [
+        'theme'                    => 'light', // "light"|"dark"
+        'size'                     => 'normal', // "normal"|"compact"
+        'tabindex'                 => 0,
+        'callback'                 => null, // DO NOT SET "biscolabOnloadCallback"
+        'expired-callback'         => null, // DO NOT SET "biscolabOnloadCallback"
+        'error-callback'           => null, // DO NOT SET "biscolabOnloadCallback"
+    ]
+];
+
+(4)Reload config cache file
+php artisan config:cache
+
+3.use v2
+   // AuthenticatesUsers.php copy to LoginController.php
+public function login(Request $request)
+    {
+
+        $this->validateLogin($request);
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+
+    protected function validateLogin(Request $request)
+    {
+
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+            'g-recaptcha-response' => 'recaptcha',
+            // OR since v4.0.0
+            recaptchaFieldName() => recaptchaRuleName()
+        ]);
+    }
+
+4.app.blade.php
+<div class="col-md-6 justify-content-center" style="padding:15px 235p">
+ 	{!! htmlFormSnippet() !!}
+	@error('g-recaptcha-response')
+	<span class="text-danger" role="alert">
+	<strong>{{ $message }}</strong>
+ 	</span>
+	@enderror
+</div>

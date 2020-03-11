@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 class NewsImgs extends Model
 {
 
-    protected $table = 'news_img';
+    protected $table = 'news_imgs';
 
 
     protected $keyType = 'integer';
