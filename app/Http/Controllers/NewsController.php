@@ -27,8 +27,9 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
+
         $news_data = $request->all();
-        $NewsImgs = new NewsImgs;
+
 
         //上傳檔案
         // $file_name = $request->file('img')->store('', 'public');
@@ -45,10 +46,11 @@ class NewsController extends Controller
         // 多張
         // 從request中撈出 多筆照片的資料
         // 多張照片 要存的欄位 new_id img_url 拿一張存一張
-        foreach ($request->all()['new_imgs'] as $item) {
-            $file = $item;
-            $path = $this->fileUpload($file, 'News');
-            $NewsImgs->new_id = $news_id['id'];
+
+        foreach ($request->new_imgs as $item) {
+            $NewsImgs = new NewsImgs;
+            $path = $this->fileUpload($item, 'News');
+            $NewsImgs->new_id = $news_id->id;
             $NewsImgs->img_url = $path;
             $NewsImgs->save();
         }
@@ -86,16 +88,6 @@ class NewsController extends Controller
             $request_data["img"] = $path; //$request_data["img"]替代成可存取路徑$path
             $item->update($request_data);
         }
-
-
-
-
-
-
-
-
-
-
 
 
         //多張圖片上傳
