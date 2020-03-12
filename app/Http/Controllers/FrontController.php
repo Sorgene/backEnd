@@ -31,9 +31,9 @@ class FrontController extends Controller
         return view('front/products');
     }
 
-    public function product_inner()
+    public function product_detail()
     {
-        return view('front/product_inner');
+        return view('front/product_detail');
     }
 
     public function contact()

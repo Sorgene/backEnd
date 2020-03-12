@@ -18,7 +18,7 @@ Route::get('/news/{id}', 'FrontController@news_detail'); // 最新消息detail
 
 Route::get('/products', 'FrontController@products'); // 產品
 
-Route::get('/product_inner', 'FrontController@product_inner'); // 選購畫面
+Route::get('/product_detail', 'FrontController@product_detail'); // 選購畫面
 Route::get('/add_cart', 'FrontController@add_cart'); // 加入購物車
 Route::get('/read_cart', 'FrontController@read_cart'); // 結帳畫面
 

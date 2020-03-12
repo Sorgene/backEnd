@@ -70,13 +70,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href=" /cart">
+                        <a class="nav-link link text-white display-4" href="/product_detail">
                             <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
                             購物車Cart
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href=" /cart">
+                        <a class="nav-link link text-white display-4" href="/contact">
                             <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
                             聯絡Contact
                         </a>
@@ -99,6 +99,7 @@
 @yield('news')
 @yield('products')
 @yield('cart')
+@yield('contact')
 
 <section class="cid-qTkAaeaxX5" id="footer1-2">
     <div class="container">

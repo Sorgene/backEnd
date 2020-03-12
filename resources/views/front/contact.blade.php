@@ -3,10 +3,9 @@
 
 @section('contact')
 
-<section class="cid-qTkAaeaxX5" id="footer1-2">
-
+<section >
     <div class="container">
-        <div class="media-container-row content text-white">
+        <div class="media-container-row content text-white"  style="margin-top:80px">
             <div class="col-12 col-md-3">
                 <div class="media-wrap">
                     <a href="https://mobirise.com/">
@@ -39,7 +38,8 @@
                 </h5>
                 <p class="mbr-text">
                     <a class="text-primary" href="https://mobirise.com/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a>
+                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for
+                        Windows</a>
                     <br><a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a>
                 </p>
             </div>
