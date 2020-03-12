@@ -69,11 +69,25 @@
                             產品Products
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href=" /cart">
+                            <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            購物車Cart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href=" /cart">
+                            <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            聯絡Contact
+                        </a>
+                    </li>
                 </ul>
+
+
                 <div class="navbar-buttons mbr-section-btn">
                     <a class="btn btn-sm btn-primary display-4" href="/login"">
                     {{-- <span class="mbri-save mbr-iconfont mbr-iconfont-btn "> --}}
-                    <span> Login It Now!
+                    <span> Login It Now
                     </span>
 
                 </a>
@@ -84,7 +98,7 @@
 @yield('index')
 @yield('news')
 @yield('products')
-
+@yield('cart')
 
 <section class="cid-qTkAaeaxX5" id="footer1-2">
     <div class="container">

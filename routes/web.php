@@ -16,11 +16,19 @@ Route::get('/', 'FrontController@index'); //首頁
 Route::get('/news', 'FrontController@news'); // 最新消息
 Route::get('/news/{id}', 'FrontController@news_detail'); // 最新消息detail
 
-Route::get('/products', 'FrontController@products'); // 最新消息
+Route::get('/products', 'FrontController@products'); // 產品
+
+Route::get('/product_inner', 'FrontController@product_inner'); // 選購畫面
+Route::get('/add_cart', 'FrontController@add_cart'); // 加入購物車
+Route::get('/read_cart', 'FrontController@read_cart'); // 結帳畫面
+
+Route::get('/contact', 'FrontController@contact'); // 聯絡
+
+
+
+// Route::get('test/{id}', 'FrontController@test');
 
 Route::get('/login', 'LoginController@login'); //登入頁
-
-Route::get('test/{id}', 'FrontController@test');
 
 Auth::routes();
 
