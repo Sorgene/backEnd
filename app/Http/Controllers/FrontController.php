@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\News;
+use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -40,5 +41,34 @@ class FrontController extends Controller
     {
         return view('front/contact');
     }
+    //購物
+    public function add_cart()
+    {
+        $productId 1;
+        //darryldecode/laravelshoppingcart
+        $Product = products::find($productId); // assuming you have a Product model with id, name, description & price
+        $rowId = 456; // generate a unique() row ID
+        $userID = Auth::user()->id; // the user ID to bind the cart contents
+
+        // add the product to cart
+        \Cart::session($userID)->add(array(
+            'id' => $rowId,
+            'name' => $Product->name,
+            'price' => $Product->price,
+            'quantity' => 4,
+            'attributes' => array(),
+            'associatedModel' => $Product
+        ));
+
+        // return view('front/cart');
+    }
+    public function cart_total()
+    {
+        $userID = Auth::user()->id;
+        $items = \Cart::session($userID)->getContent();
+        dd($items);
+        return view('front/cart_total');
+    }
+
 
 }

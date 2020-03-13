@@ -67,13 +67,19 @@
         border-color: #ff6700;
     }
 
+    .capacity_button .color.active {
+        color: #424242;
+        border-color: #ff6700;
+        transition: opacity, border .2s linear;
+    }
+
     .product_color {
         font-size: 20px;
         margin-top: 30px;
         margin-bottom: 20px;
     }
 
-    .product_color .color .active {
+    .color_button .color.active {
         color: #424242;
         border-color: #ff6700;
         transition: opacity, border .2s linear;
@@ -126,12 +132,12 @@
 <div class="container">
     <div class="media-container-row" style="margin-top:80px">
         <div class="row">
-            <div class="product_img" class="col-6">
+            <div class="product_img col-6">
 
 
 
             </div>
-            <div class="product_article" class="col-6">
+            <div class="product_article col-6">
                 <div class="product_section">
                     <div class="section_title">
                         <h1>Redmi Note 8 Pro</h1>
@@ -153,11 +159,11 @@
                         容量
                     </div>
                     <div class="capacity_button">
-                        <div class="col-4 button">
-                            <div class="color" data-capacity="4GB+64GB"> 4GB+64GB</div>
+                        <div class="col-4 button color" data-capacity="4GB+64GB">
+                            <div> 4GB+64GB</div>
                         </div>
-                        <div class="col-4 button color">
-                            <div class="color" data-capacity="6GB+128GB"> 6GB+128GB</div>
+                        <div class="col-4 button color" data-capacity="6GB+128GB">
+                            <div> 6GB+128GB</div>
                         </div>
                     </div>
                 </div>
@@ -166,17 +172,17 @@
                         顏色
                     </div>
                     <div class="row color_button">
-                        <div class="col-4 button">
-                            <div class="color" data-color="冰翡翠"> 冰翡翠</div>
+                        <div class="col-4 button color " data-color="冰翡翠">
+                            <div>冰翡翠</div>
                         </div>
-                        <div class="col-4 button">
-                            <div class="color active" data-color="珍珠白">珍珠白</div>
+                        <div class="col-4 button color " data-color="珍珠白">
+                            <div>珍珠白</div>
                         </div>
-                        <div class="col-4 button">
-                            <div class="color" data-color="電光灰">電光灰</div>
+                        <div class="col-4 button color " data-color="電光灰">
+                            <div>電光灰</div>
                         </div>
-                        <div class="col-4 button">
-                            <div class="color" data-color="深海藍">深海藍</div>
+                        <div class="col-4 button color" data-color="深海藍">
+                            <div>深海藍</div>
                         </div>
                     </div>
                 </div>
@@ -189,7 +195,7 @@
                         <div class="qty_button">
                             <div class="number">
                                 <span class="minus">-</span>
-                                <input type="text" value="1" />
+                                <input id="qty" type="text" value="1" >
                                 <span class="plus">+</span>
                             </div>
                         </div>
@@ -207,9 +213,10 @@
                             <span>NT$6,599</span>
                         </div>
                     </div>
-
-                    <input type="text" name="capacity" id="capacity">
+                    <input type="text" name="product_id" id="product_id">
                     <input type="text" name="color" id="color">
+                    <input type="text" name="capacity" id="capacity">
+
 
 
 
@@ -217,16 +224,8 @@
                         <button>立即購買</button>
                     </div>
                 </form>
-
             </div>
-
-
         </div>
-
-
-
-
-
     </div>
 </div>
 </section>
@@ -235,25 +234,50 @@
 @endsection
 
 @section('js')
-<script>
-    //???不瞭解
-    $('.card-box.*')attr('style','')
-//改框顏色,加上active(待修)
-$('.product_color .color').click(function () {
-    console.log(this)
-// $('.product_color .color').removeClass('active');
-// $(this).addClass('active');
 
-//顏色 放入 input的 value中(上一步未完成)
+
+<script>
+ //改pproduct_article框顏色,加上active並移除其他的
+$('.capacity_button .color').click(function () {
+$('.capacity_button .color').removeClass('active');
+$(this).addClass('active');
+// 顏色 放入 input的 value中
+// 獲取 get data attr value
+var capacity = $(this).attr('data-capacity');
+// 改變 input value chang
+$('#capacity').val(capacity)
+});
+
+    //改product_color框顏色,加上active並移除其他的
+$('.color_button .color').click(function () {
+$('.color_button .color').removeClass('active');
+$(this).addClass('active');
+console.log($(this));
+//顏色 放入 input的 value中
 //獲取 get data attr value
 var color = $(this).attr('data-color');
-
 //改變 input value chang
 $('#color').val(color)
+});
+
+//get input number plus minus value
+$(function(){//和 $(document).ready()一樣 ，用意在DOM載入後執行ready()方法
+
+var valueElement = $('#value');
+function incrementValue(e){
+    valueElement.text(Math.max(parseInt(valueElement.text()) + e.data.increment, 0));
+    return false;
+}
+
+$('#plus').bind('click', {increment: 1}, incrementValue);
+
+$('#minus').bind('click', {increment: -1}, incrementValue);
 
 });
-</script>
-<script>
+
+
+
+//計算機
     $(document).ready(function() {
 			$('.minus').click(function () {
 				var $input = $(this).parent().find('input');

@@ -17,6 +17,7 @@ class CreateProducts extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('name');
+            $table->integer('price')->default(0);
             $table->integer('sort')->default(0);
             $table->timestamps();
         });

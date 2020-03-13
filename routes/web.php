@@ -20,7 +20,7 @@ Route::get('/products', 'FrontController@products'); // 產品
 
 Route::get('/product_detail', 'FrontController@product_detail'); // 選購畫面
 Route::get('/add_cart', 'FrontController@add_cart'); // 加入購物車
-Route::get('/read_cart', 'FrontController@read_cart'); // 結帳畫面
+Route::get('/cart_total', 'FrontController@cart_total'); // 結帳畫面
 
 Route::get('/contact', 'FrontController@contact'); // 聯絡
 
