@@ -66,19 +66,19 @@
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="/products">
                             <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                            產品Products
+                            產品
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="/product_detail">
                             <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                            購物車Cart
+                            購物車
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="/contact">
-                            <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                            聯絡Contact
+                        <a class="nav-link link text-white display-4" href="/contactUs">
+
+                            聯絡
                         </a>
                     </li>
                 </ul>

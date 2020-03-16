@@ -4,7 +4,7 @@
 @section('contact')
 
 
-    <div class="container">
+    <div class="container " style="padding:100px" >
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
                 <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
@@ -20,7 +20,8 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="Z63nfbfIBPP2U86g+nAVOcv4DJ2wznML9Qm+UL1wl7kqC3OEjhJVWqoLbizgRqmitBhPBgWusttQfqFJroOUtKubhFyhIRWNHVLVxlMDcJzaQprOW6vDzQZtxYPBlyrb">
+                <form action="/contactUs/store" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="Z63nfbfIBPP2U86g+nAVOcv4DJ2wznML9Qm+UL1wl7kqC3OEjhJVWqoLbizgRqmitBhPBgWusttQfqFJroOUtKubhFyhIRWNHVLVxlMDcJzaQprOW6vDzQZtxYPBlyrb">
+                    @csrf
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -35,10 +36,10 @@
                             <label for="email-form1-3" class="form-control-label mbr-fonts-style display-7">Email</label>
                             <input type="email" name="email" data-form-field="Email" required="required" class="form-control display-7" id="email-form1-3">
                         </div>
-                        <div data-for="phone" class="col-md-4  form-group">
+                        {{-- <div data-for="phone" class="col-md-4  form-group">
                             <label for="phone-form1-3" class="form-control-label mbr-fonts-style display-7">Phone</label>
                             <input type="tel" name="phone" data-form-field="Phone" class="form-control display-7" id="phone-form1-3">
-                        </div>
+                        </div> --}}
                         <div data-for="message" class="col-md-12 form-group">
                             <label for="message-form1-3" class="form-control-label mbr-fonts-style display-7">Message</label>
                             <textarea name="message" data-form-field="Message" class="form-control display-7" id="message-form1-3"></textarea>

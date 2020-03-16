@@ -18,11 +18,14 @@ Route::get('/news/{id}', 'FrontController@news_detail'); // 最新消息detail
 
 Route::get('/products', 'FrontController@products'); // 產品
 
+//購物車
 Route::get('/product_detail', 'FrontController@product_detail'); // 選購畫面
 Route::get('/add_cart', 'FrontController@add_cart'); // 加入購物車
 Route::get('/cart_total', 'FrontController@cart_total'); // 結帳畫面
 
-Route::get('/contact', 'FrontController@contact'); // 聯絡
+// 聯絡
+Route::get('/contactUs', 'FrontController@contactUs');
+Route::post('/contactUs/store', 'FrontController@contactstore');
 
 
 
