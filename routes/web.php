@@ -48,7 +48,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/home'], function () {
     Route::get('/news/edit/{id}', 'NewsController@edit'); //編輯
     Route::post('/news/update/{id}', 'NewsController@update'); //更新
     Route::post('/news/delete/{id}', 'NewsController@delete'); //刪除暴力方式
-
+    Route::post('ajax_delete_news_imgs', 'NewsController@ajax_delete_news_imgs');
+    
     // 產品管理
     Route::get('/products', 'ProductsController@index'); //首頁
 

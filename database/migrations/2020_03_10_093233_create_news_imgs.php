@@ -14,7 +14,7 @@ class CreateNewsImgs extends Migration
     public function up()
     {
         Schema::create('news_imgs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('news_id');
             $table->string('img_url');
             $table->integer('sort')->default(0);
             $table->string('title');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\News;
 use App\ContactUs;
 use App\Mail\SentToUser;
+use App\Mail\OrderShipped;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -80,7 +81,9 @@ class FrontController extends Controller
     {
        $contact = $request->all();
        ContactUs::create($contact);
-       Mail::to('gensoso@gmail.com')->send(new SentToUser());
+
+       Mail::to('gensoso@gmail.com')->send(new SentToUser($contact));//寄信
+
         return redirect('/contactUs');
     }
 

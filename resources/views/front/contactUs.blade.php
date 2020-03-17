@@ -1,7 +1,7 @@
 @extends('layouts.nav')
 
 
-@section('contact')
+@section('content')
 
 
     <div class="container " style="padding:100px" >

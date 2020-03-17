@@ -1,7 +1,7 @@
 @extends('layouts.nav')
 
 
-@section('news')
+@section('content')
 
 
 <section class="engine">

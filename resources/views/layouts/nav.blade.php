@@ -96,10 +96,8 @@
     </nav>
 </section>
 @yield('index')
-@yield('news')
-@yield('products')
-@yield('cart')
-@yield('contact')
+
+@yield('content')
 
 <section class="cid-qTkAaeaxX5" id="footer1-2">
     <div class="container">

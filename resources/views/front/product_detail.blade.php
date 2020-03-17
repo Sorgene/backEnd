@@ -85,7 +85,7 @@
         transition: opacity, border .2s linear;
     }
 
-    .product_qty {
+    /* .product_qty {
         font-size: 20px;
 
         span {
@@ -119,7 +119,7 @@
             display: inline-block;
             vertical-align: middle;
         }
-    }
+    } */
 
     .product_total {}
 
@@ -128,16 +128,16 @@
 @endsection
 
 
-@section('cart')
+@section('content')
 <div class="container">
     <div class="media-container-row" style="margin-top:80px">
-        <div class="row">
-            <div class="product_img col-6">
+        <div class="row" style="width:100%">
+            <div class="product_img col-6" >
 
 
 
             </div>
-            <div class="product_article col-6">
+            <div class="product_article col-6" >
                 <div class="product_section">
                     <div class="section_title">
                         <h1>Redmi Note 8 Pro</h1>

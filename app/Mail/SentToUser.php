@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -20,12 +21,6 @@ class SentToUser extends Mailable
     {
         //
     }
-
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->markdown('emails.orders.shipped');

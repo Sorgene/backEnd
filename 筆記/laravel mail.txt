@@ -1,0 +1,102 @@
+Step1. 需安裝 Guzzle HTTP library
+composer require guzzlehttp/guzzle
+
+Step2. Laravel 設定 .env ( gmail )
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=teacherTest0929@gmail.com
+MAIL_PASSWORD=QWEasdzxc0929
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=null(刪除)
+MAIL_FROM_NAME="${APP_NAME}"(刪除)
+
+
+Step3. 使用 gmail 寄信，需設定低安全性應用程式存取權
+設定網址
+https://myaccount.google.com/lesssecureapps
+
+Step4. 使用 make:mail [名稱] 來生成 Mailable class
+php artisan make:mail OrderShipped --markdown=emails.orders.shipped
+
+在 app/Mail/ 找到 OrderShipped.php，打開
+
+ public function build()
+    {
+        return $this->view('view.name');
+    }
+
+可於 public function build(){...} 裡，調用 from, subject, view 與 attach 方法來配置 Mail資料，如下：
+(1) 假設我要寄送訂單運送資訊，先在 __construct 帶入 Order $order
+(2) 在 build 裡面配置一些 mail 設定，以及帶入一些值->with(['orderName' => $this->order->name]) )來提供「shipped.blade.php」使用
+
+    public function build()
+    {
+        return $this->view('emails.orders.shipped')
+            ->attachRaw($this->pdf, 'name.pdf', [
+                'mime' => 'application/pdf',
+            ])
+            ->subject('shipped notification')
+            ->with([
+                'orderName' => $this->order->name,
+                'orderPrice' => $this->order->price,
+            ]);
+    }
+
+
+Step5. 建立 OrderController 來寄信
+很簡單的配置 to() , cc(), bcc()…等即可寄信
+就不需要再處理blade、邏輯與資料的部分，因為你已經於「OrderShipped.php (Mailable class)」、「shipped.blade.php」 完成了（分離），可以往上滑再看一下～
+
+    public function ship(Request $request, $orderId)
+    {
+        $order = Order::findOrFail($orderId);
+
+        // Ship order...
+
+        Mail::to($request->user())
+          ->cc($moreUsers)
+          ->bcc($evenMoreUsers)
+          ->send(new OrderShipped($order));
+
+    }
+}
+
+簡單整理以下幾種寄信的方式
+Mail::to($request->user())
+    ->cc($moreUsers)
+    ->bcc($evenMoreUsers)
+    ->send(new OrderShipped($order));
+
+/* Queueing Mail */
+// Queueing A Mail Message: queue()
+Mail::to($request->user())
+    ->cc($moreUsers)
+    ->bcc($evenMoreUsers)
+    ->queue(new OrderShipped($order));
+    
+// Delayed Message Queueing: later()
+$when = Carbon\Carbon::now()->addMinutes(10);
+
+Mail::to($request->user())
+    ->cc($moreUsers)
+    ->bcc($evenMoreUsers)
+    ->later($when, new OrderShipped($order));
+
+
+
+
+  'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'teatherTest0929@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', '中興職訓測試'),
+    ],
+
+建立 emails 目錄
+
+生成可郵寄類，產生 Mailables
+php artisan make:mail OrderShipped --markdown=emails.orders.shipped
+OrderShipped.php
+   public function build()
+    {
+        return $this->markdown('emails.orders.shipped');
+    }
