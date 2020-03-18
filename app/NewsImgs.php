@@ -14,7 +14,7 @@ class NewsImgs extends Model
     protected $keyType = 'integer';
 
 
-    protected $fillable = ['news_id', 'img_url', 'sort', 'created_at', 'updated_at'];
+    protected $fillable = ['news_id', 'img_url', 'sort', 'created_at', 'updated_at',];
 
 
 }

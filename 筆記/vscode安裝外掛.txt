@@ -1,9 +1,25 @@
 ﻿
-php namespace resolver//imspore name
-phpfmt - php formatter
-php  extension pack
+HTML CSS Support
 
-laravel extension pack
-laravel goto controller
+Live Server
+	(Open Preferences -> Settings
+	Files: Auto Save
+	Controls auto save of dirty files.
+	"afterDelay")
+Live Sass Compiler
 
-live server
+PHP Extension Pack
+PHP Namespace Resolver
+phpfmt - PHP formatter
+
+Laravel Extension Pack
+	(Laravel Blade Snippets
+	Open Preferences -> Settings
+	"blade.format.enable": true, 
+	restart vscode)
+laravel-goto-controller
+
+Prettier - Code formatter
+
+Material Icon Theme
+

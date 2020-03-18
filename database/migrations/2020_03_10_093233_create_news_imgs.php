@@ -17,10 +17,6 @@ class CreateNewsImgs extends Migration
             $table->bigIncrements('news_id');
             $table->string('img_url');
             $table->integer('sort')->default(0);
-            $table->string('title');
-            $table->string('content');
-            $table->integer('type_id');
-            $table->integer('price');
             $table->timestamps();
         });
     }

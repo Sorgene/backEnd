@@ -44,13 +44,12 @@
             <div class="menu-logo">
                 <div class="navbar-brand">
                     <span class="navbar-logo">
-                        <a href="https://mobirise.com">
-                            <img src="{{asset('/assets/images/logo2.png')}}" alt="Mobirise" style="height: 3.8rem;">
-                        </a>
+                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn  style="height: 3.8rem;""></span>
+
                     </span>
                     <span class="navbar-caption-wrap">
-                        <a class="navbar-caption text-white display-4" href="/"">
-                            HOME
+                        <a class="navbar-caption text-white display-4" href="/">
+                              HOME
                         </a>
                     </span>
                 </div>
@@ -59,20 +58,20 @@
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="/news">
-                            <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
+
                             最新消息News
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="/products">
-                            <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                            產品
+
+                            產品Product
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="/product_detail">
-                            <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                            購物車
+                        <a class="nav-link link text-white display-4" href="/cart">
+
+                            My購物車
                         </a>
                     </li>
                     <li class="nav-item">

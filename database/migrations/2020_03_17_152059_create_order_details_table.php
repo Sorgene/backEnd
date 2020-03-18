@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateOrderDetailsTable extends Migration {
 
@@ -18,7 +19,8 @@ class CreateOrderDetailsTable extends Migration {
 			$table->integer('ordrer_id')->unsigned()->default(0);
 			$table->integer('product_id')->unsigned()->default(0);
 			$table->integer('qty')->unsigned()->default(0);
-			$table->integer('price')->unsigned()->default(0);
+            $table->integer('price')->unsigned()->default(0);
+            $table->timestamps();
 		});
 	}
 

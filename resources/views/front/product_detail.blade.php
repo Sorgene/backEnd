@@ -132,18 +132,18 @@
 <div class="container">
     <div class="media-container-row" style="margin-top:80px">
         <div class="row" style="width:100%">
-            <div class="product_img col-6" >
+            <div class="product_img col-6">
 
 
 
             </div>
-            <div class="product_article col-6" >
+            <div class="product_article col-6">
                 <div class="product_section">
                     <div class="section_title">
-                        <h1>Redmi Note 8 Pro</h1>
+                        <div class="title">{{$Product->title}}</div>
                     </div>
                     <div class="section_info">
-                        <span>6GB+128GB</span>, <span>冰翡翠</span>
+                        <span>6GB+128GB</span>, <span>綠</span>
                     </div>
                     <div class="section_price">
                         <span>NT$7,599</span>
@@ -172,21 +172,21 @@
                         顏色
                     </div>
                     <div class="row color_button">
-                        <div class="col-4 button color " data-color="冰翡翠">
-                            <div>冰翡翠</div>
+                        <div class="col-4 button color " data-color="綠">
+                            <div>綠</div>
                         </div>
-                        <div class="col-4 button color " data-color="珍珠白">
-                            <div>珍珠白</div>
+                        <div class="col-4 button color " data-color="白">
+                            <div>白</div>
                         </div>
-                        <div class="col-4 button color " data-color="電光灰">
-                            <div>電光灰</div>
+                        <div class="col-4 button color " data-color="紅">
+                            <div>紅</div>
                         </div>
-                        <div class="col-4 button color" data-color="深海藍">
-                            <div>深海藍</div>
+                        <div class="col-4 button color" data-color="藍">
+                            <div>藍</div>
                         </div>
                     </div>
                 </div>
-                <form action="/cart" method="post">
+                <form action="/add_cart/{{$Product->id}}" method="post">
                     @csrf
                     <div class="product_qty">
                         <div class="qty_title">
@@ -194,9 +194,9 @@
                         </div>
                         <div class="qty_button">
                             <div class="number">
-                                <span class="minus">-</span>
-                                <input id="qty" type="text" value="1" >
-                                <span class="plus">+</span>
+                                <a id="minus" href="#">-</a>
+                                <input id="qty" type="text" value="1" min="0">
+                                <a id="plus" href="#">+</a>
                             </div>
                         </div>
                     </div>
@@ -206,20 +206,16 @@
                         </div>
                         <div class="total_button">
                             <span>Redmi Note 8 Pro</span>
-                            <span>冰翡翠</span>
+                            <span>綠</span>
                             <span>6GB</span>+<span>64GB</span>*<span>1</span>
                             <span>NT$6,599 </span>
                             <span>總計：</span>
-                            <span>NT$6,599</span>
+                            NT${{$Product->price}}
                         </div>
                     </div>
-                    <input type="text" name="product_id" id="product_id">
+                    <input type="text" name="product_id" id="">
                     <input type="text" name="color" id="color">
                     <input type="text" name="capacity" id="capacity">
-
-
-
-
                     <div class="product_submit">
                         <button>立即購買</button>
                     </div>
@@ -237,27 +233,29 @@
 
 
 <script>
+$('.card-box *').attr('style','');
+
  //改pproduct_article框顏色,加上active並移除其他的
 $('.capacity_button .color').click(function () {
-$('.capacity_button .color').removeClass('active');
-$(this).addClass('active');
-// 顏色 放入 input的 value中
-// 獲取 get data attr value
-var capacity = $(this).attr('data-capacity');
-// 改變 input value chang
-$('#capacity').val(capacity)
+    $('.capacity_button .color').removeClass('active');
+    $(this).addClass('active');
+    // 顏色 放入 input的 value中
+    // 獲取 get data attr value
+    var capacity = $(this).attr('data-capacity');
+    // 改變 input value chang
+    $('#capacity').val(capacity)
 });
 
     //改product_color框顏色,加上active並移除其他的
 $('.color_button .color').click(function () {
-$('.color_button .color').removeClass('active');
-$(this).addClass('active');
-console.log($(this));
-//顏色 放入 input的 value中
-//獲取 get data attr value
-var color = $(this).attr('data-color');
-//改變 input value chang
-$('#color').val(color)
+    $('.color_button .color').removeClass('active');
+    $(this).addClass('active');
+    console.log($(this));
+    //顏色 放入 input的 value中
+    //獲取 get data attr value
+    var color = $(this).attr('data-color');
+    //改變 input value chang
+    $('#color').val(color)
 });
 
 //get input number plus minus value
@@ -265,35 +263,36 @@ $(function(){//和 $(document).ready()一樣 ，用意在DOM載入後執行ready
 
 var valueElement = $('#value');
 function incrementValue(e){
-    valueElement.text(Math.max(parseInt(valueElement.text()) + e.data.increment, 0));
-    return false;
-}
+            //get now value
+            var now_number = $('#qty').val();
+            //add increment value
+            var new_number  = Math.max(e.data.increment + parseInt(now_number) , 0);
+            $('#qty').val(new_number);
 
+            return false;
+        }
 $('#plus').bind('click', {increment: 1}, incrementValue);
-
 $('#minus').bind('click', {increment: -1}, incrementValue);
 
 });
 
-
-
-//計算機
-    $(document).ready(function() {
-			$('.minus').click(function () {
-				var $input = $(this).parent().find('input');
-				var count = parseInt($input.val()) - 1;
-				count = count < 1 ? 1 : count;
-				$input.val(count);
-				$input.change();
-				return false;
-			});
-			$('.plus').click(function () {
-				var $input = $(this).parent().find('input');
-				$input.val(parseInt($input.val()) + 1);
-				$input.change();
-				return false;
-			});
-		});
+// //計算機
+//     $(document).ready(function() {
+// 			$('.minus').click(function () {
+// 				var $input = $(this).parent().find('input');
+// 				var count = parseInt($input.val()) - 1;
+// 				count = count < 1 ? 1 : count;
+// 				$input.val(count);
+// 				$input.change();
+// 				return false;
+// 			});
+// 			$('.plus').click(function () {
+// 				var $input = $(this).parent().find('input');
+// 				$input.val(parseInt($input.val()) + 1);
+// 				$input.change();
+// 				return false;
+// 			});
+// 		});
 </script>
 
 

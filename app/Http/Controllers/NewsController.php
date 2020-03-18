@@ -27,7 +27,6 @@ class NewsController extends Controller
     {
 
         $news_data = $request->all();
-
         //上傳檔案
         // $file_name = $request->file('img')->store('', 'public');
         // $news_data['img'] = $file_name;
@@ -38,19 +37,21 @@ class NewsController extends Controller
             $path = $this->fileUpload($file, 'News');
             $news_data['img'] = $path;
         }
-        $news_id = News::create($news_data);
 
         //create 多張
         // 從request中撈出 多筆照片的資料
         // 多張照片 要存的欄位 new_id img_url 拿一張存一張
-        if ($request->hasFile('news_imgs')) {
+        $news_id = News::create($news_data);
+
+        if ($request->hasFile('news_imgs')) { //news_img 來自view/news/create.blade.php name="news_img[]"
+
             $files = $request->file('news_imgs');
             foreach ($files as $item) {
-                // dd($item);
+                //上傳圖片
                 $path = $this->fileUpload($item, 'News');
+                //建立Newe多張圖檔
                 $NewsImgs = new NewsImgs;
-
-                $NewsImgs->new_id = $news_id->id;
+                $NewsImgs->news_id = $news_id->id;
                 $NewsImgs->img_url = $path;
                 $NewsImgs->save();
             }
@@ -66,6 +67,14 @@ class NewsController extends Controller
 
     public function update(Request $request, $id)
     {
+        //法一
+        // $news = News::find($id);
+        // $news->img = $request->img;
+        // $news->title = $request->title;
+        // $news->content = $request->content;
+        // $news->save();
+
+        //法二
         // $item 抓頁數ID=資料庫ID
         $item = News::find($id);
         // $request_data 抓網頁現有資料id、img、title、content
@@ -74,14 +83,13 @@ class NewsController extends Controller
         //主要圖片上傳
         // if有上傳有上傳圖片新圖片，hasFile 如果有相同
         if ($request->hasFile('img')) {
-
             // 舊圖片刪除 File要先滑鼠右鍵選import class選擇Illuminate\Support\Facades\File，上面出現use
             $old_img = $item->img;
             File::delete(public_path() . $old_img);
 
             //上傳新圖片
             $file = $request->file("img"); //$file 抓新的網頁的img網址
-            $path = $this->fileUpload($file, 'product'); //$path 轉換成可存取路徑，位置public/upload/product
+            $path = $this->fileUpload($file, 'news'); //$path 轉換成可存取路徑，位置public/upload/product
             $request_data["img"] = $path; //$request_data["img"]替代成可存取路徑$path
             $item->update($request_data);
         }
@@ -94,8 +102,7 @@ class NewsController extends Controller
 
                 //建立News多張圖片的資料
                 $news_imgs = new NewsImgs;
-
-                $news_imgs->news_id = $item->id; //找到使用這些圖片的新聞ID
+                $news_imgs->news_id = $item->id; //找到使用這些圖片的news id
                 $news_imgs->img = $path;
                 $news_imgs->save();
             }
@@ -156,8 +163,8 @@ class NewsController extends Controller
     {
         $newsimgid = $request->newsimgid;
 
-        $item = NewsImgs::find($newsimgid);
-        $old_image = $item->img;
+        $item = NewsImgs::find($newsimgid);//多張圖方法(model:NewsImgs)中的id
+        $old_image = $item->img_url;
 
         if (file_exists(public_path() . $old_image)) {
             File::delete(public_path() . $old_image);
@@ -165,7 +172,7 @@ class NewsController extends Controller
 
         $item->delete();
 
-        return "delete success";
+        return 'ajax success:'.$newsimgid;
     }
 
     public function ajax_post_sort(Request $request)
@@ -180,7 +187,7 @@ class NewsController extends Controller
 
         $img->save();
 
-        return "yeah";
+        return "Success!";
 
     }
 
