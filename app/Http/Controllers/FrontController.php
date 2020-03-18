@@ -63,18 +63,18 @@ class FrontController extends Controller
 
         // return view('front/cart');
     }
-    public function cart_total()
+    public function cart()
     {
-        // $userID = Auth::user()->id;
-        // $items = \Cart::session($userID)->getContent();
+        $userID = Auth::user()->id;
+        $items = \Cart::session($userID)->getContent();
         // dd($items);
-        // return view('front/cart_total');
+        return view('front.cart'.compact('$items'));
     }
 
     //聯絡我們
     public function contactUs()
     {
-        return view('front/contactUs');
+        return view('front.contactUs');
     }
 
     public function contactstore(Request $request)

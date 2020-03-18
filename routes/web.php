@@ -21,7 +21,7 @@ Route::get('/products', 'FrontController@products'); // 產品
 //購物車
 Route::get('/product_detail', 'FrontController@product_detail'); // 選購畫面
 Route::get('/add_cart', 'FrontController@add_cart'); // 加入購物車
-Route::get('/cart_total', 'FrontController@cart_total'); // 結帳畫面
+Route::get('/cart', 'FrontController@cart_total'); // 結帳畫面
 
 // 聯絡
 Route::get('/contactUs', 'FrontController@contactUs');
@@ -49,7 +49,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/home'], function () {
     Route::post('/news/update/{id}', 'NewsController@update'); //更新
     Route::post('/news/delete/{id}', 'NewsController@delete'); //刪除暴力方式
     Route::post('ajax_delete_news_imgs', 'NewsController@ajax_delete_news_imgs');
-    
+
     // 產品管理
     Route::get('/products', 'ProductsController@index'); //首頁
 

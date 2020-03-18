@@ -186,7 +186,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="" method="post">
+                <form action="/cart" method="post">
                     @csrf
                     <div class="product_qty">
                         <div class="qty_title">
