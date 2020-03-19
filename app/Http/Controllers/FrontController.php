@@ -43,6 +43,12 @@ class FrontController extends Controller
     {
         return view('front/index');
     }
+
+    public function test()
+    {
+        return view('front/test');
+    }
+
     public function news()
     {
         $news_data = News::orderBy('sort', 'desc')->get();
