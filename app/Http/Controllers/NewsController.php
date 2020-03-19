@@ -103,7 +103,7 @@ class NewsController extends Controller
                 //建立News多張圖片的資料
                 $news_imgs = new NewsImgs;
                 $news_imgs->news_id = $item->id; //找到使用這些圖片的news id
-                $news_imgs->img = $path;
+                $news_imgs->img_url = $path;
                 $news_imgs->save();
             }
         }
@@ -117,12 +117,13 @@ class NewsController extends Controller
     {
         $item = News::find($id);
 
-        $old_image = $item->img;
+        $old_image = $item->img_url;
 
         if (file_exists(public_path() . $old_image)) {
             File::delete(public_path() . $old_image);
         }
         $item->delete();
+
         //多圖片刪除
 
         $news_imgs = NewsImgs::where('news_id', $id)->get();

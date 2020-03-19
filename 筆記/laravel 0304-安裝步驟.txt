@@ -1,0 +1,9 @@
+composer install(需要安裝02-Composer-Setup)
+npm install
+
+.env
+
+php artisan key:generate
+php artisan migrate
+
+php artisan serve

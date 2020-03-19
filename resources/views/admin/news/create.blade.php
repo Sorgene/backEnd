@@ -39,7 +39,7 @@
 <script>
     $(document).ready(function() {
         $('#content').summernote({
-            minHeight: 300,  //設定最小高度
+            minHeight: 200,  //設定最小高度
             lang: 'zh-TW',
             callbacks: {
                 onImageUpload: function(files) {
