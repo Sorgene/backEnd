@@ -18,7 +18,6 @@ class CreateProductsImgs extends Migration
             $table->integer('products_id');
             $table->longText('img_url');
             $table->integer('sort')->default(0);
-            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
