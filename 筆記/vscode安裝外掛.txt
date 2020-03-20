@@ -1,12 +1,17 @@
 ﻿
 HTML CSS Support
 
+
+
 Live Server
 	(Open Preferences -> Settings
 	Files: Auto Save
 	Controls auto save of dirty files.
 	"afterDelay")
 Live Sass Compiler
+Beautify css/sass/scss/less
+
+
 
 PHP Extension Pack
 PHP Namespace Resolver
